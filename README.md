@@ -1,0 +1,1 @@
+# DePIN-Alpha-Schema
