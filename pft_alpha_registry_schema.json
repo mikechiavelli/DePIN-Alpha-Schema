@@ -1,0 +1,718 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://postfiat.org/schemas/alpha-registry/v1.1.0",
+  "title": "Post Fiat Alpha Registry — Unified Report Schema",
+  "description": "Formal schema specification for Post Fiat Network Alpha Registry reports: tokenomics scorecards, AI agent sector deep dives, airdrop intelligence reports, and DePIN sector deep dives. Enables programmatic ingestion by Hive Mind agents. v1.1.0 adds DePIN-specific fields identified during the DePIN Sector Deep Dive validation exercise.",
+  "version": "1.1.0",
+  "changelog": {
+    "v1.1.0": [
+      "Added depin_subcategory enum field to protocol entries",
+      "Added depin_device_count integer field to protocol entries",
+      "Added proof_of_work_mechanism enum field to protocol entries",
+      "Added demand_revenue_monthly_usd number field to protocol entries",
+      "Added physical_coverage_metric string field to protocol entries",
+      "Added centralised_cloud_cost_discount_pct number field to protocol entries",
+      "Added anti_gaming_mechanism enum field to protocol entries",
+      "Added hardware_operator_cost_usd number field to protocol entries",
+      "Lowered sector_deep_dive protocols minItems from 3 to 1 to support single-protocol validation entries",
+      "Added methodology_version to changelog block"
+    ],
+    "v1.0.0": [
+      "Initial release. Scorecard 5-section structure, 8-factor airdrop rubric v2, unified metadata block."
+    ]
+  },
+
+  "definitions": {
+
+    "metadata": {
+      "type": "object",
+      "description": "Universal metadata block required on every report",
+      "required": ["report_id", "report_type", "analyst_id", "timestamp", "methodology_version", "source_urls", "disclaimer"],
+      "additionalProperties": false,
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "Unique report identifier. Format: PFT-{TYPE}-{YYYYMMDD}-{4-char hex}",
+          "pattern": "^PFT-(TOKENOMICS|SECTOR|AIRDROP)-[0-9]{8}-[a-f0-9]{4}$",
+          "examples": ["PFT-TOKENOMICS-20260321-d4ef", "PFT-SECTOR-20260319-a1b2", "PFT-SECTOR-20260324-5703"]
+        },
+        "report_type": {
+          "type": "string",
+          "enum": ["tokenomics_scorecard", "sector_deep_dive", "airdrop_intelligence"],
+          "description": "Discriminator field routing this report to the correct sub-schema"
+        },
+        "analyst_id": {
+          "type": "string",
+          "description": "Post Fiat network analyst identifier or pseudonym",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 datetime of report publication (UTC)"
+        },
+        "data_as_of": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the underlying data was sourced (YYYY-MM-DD)"
+        },
+        "methodology_version": {
+          "type": "string",
+          "description": "Schema + rubric version string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "examples": ["v1.0.0", "v1.1.0"]
+        },
+        "source_urls": {
+          "type": "array",
+          "description": "All primary data sources referenced in this report",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "disclaimer": {
+          "type": "string",
+          "description": "Required legal/risk disclaimer",
+          "minLength": 20
+        },
+        "tags": {
+          "type": "array",
+          "description": "Optional taxonomy tags for agent routing (e.g. DePIN, AI, storage, compute)",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "score_1_10": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Score on a 1-10 scale. 1=Poor, 4=Below Avg, 6=Average, 8=Strong, 10=Best-in-Class"
+    },
+
+    "score_1_5": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Score on a 1-5 sub-factor scale used in the airdrop rubric"
+    },
+
+    "weight_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Weight as a decimal fraction (e.g. 0.06 = 6%). All weights in a section must sum to 1.0 +/- 0.02"
+    },
+
+    "signal_enum": {
+      "type": "string",
+      "enum": ["ACCUMULATE", "SPECULATIVE", "MONITOR_ONLY", "AVOID", "SELL"],
+      "description": "Standardised trading signal for Hive Mind routing"
+    },
+
+    "tier_enum": {
+      "type": "string",
+      "enum": ["TIER_1", "TIER_2", "TIER_3", "TIER_4"],
+      "description": "Quality tier: TIER_1 >= 9.0, TIER_2 7.0-8.9, TIER_3 5.0-6.9, TIER_4 < 5.0"
+    },
+
+    "depin_subcategory_enum": {
+      "type": "string",
+      "enum": [
+        "Compute_GPU",
+        "Compute_General",
+        "Storage",
+        "Wireless_IoT",
+        "Wireless_5G",
+        "GPS_Location",
+        "Bandwidth",
+        "Weather_Environmental",
+        "Vehicle_Data",
+        "Mapping",
+        "Energy",
+        "Machine_Economy_L1",
+        "Other"
+      ],
+      "description": "DePIN subcategory enum for Hive Mind subcategory routing. Added v1.1.0. Replaces free-text category field for DePIN reports."
+    },
+
+    "proof_of_work_mechanism_enum": {
+      "type": "string",
+      "enum": [
+        "PoRep_PoSt",
+        "Proof_of_Coverage",
+        "Burn_and_Mint_Equilibrium",
+        "AI_Image_Verification",
+        "GPS_Attestation",
+        "Challenge_Response",
+        "Work_to_Earn",
+        "Hardware_Attestation",
+        "Revenue_Verified",
+        "None"
+      ],
+      "description": "How the protocol verifies physical work is being performed. Critical for assessing supply-side anti-gaming integrity. Added v1.1.0."
+    },
+
+    "anti_gaming_mechanism_enum": {
+      "type": "string",
+      "enum": [
+        "Cryptographic_Proof",
+        "AI_Quality_Scoring",
+        "GPS_Cross_Validation",
+        "Challenge_Response",
+        "Hardware_Attestation",
+        "KYC_Gated",
+        "None"
+      ],
+      "description": "How the protocol prevents operators from faking physical work. Added v1.1.0."
+    },
+
+    "scored_dimension": {
+      "type": "object",
+      "required": ["dimension_id", "label", "weight", "score", "weighted_score", "rationale"],
+      "additionalProperties": false,
+      "properties": {
+        "dimension_id": { "type": "string", "description": "Unique slug, e.g. MV-01, TD-03" },
+        "label": { "type": "string" },
+        "weight": { "$ref": "#/definitions/weight_pct" },
+        "score": { "$ref": "#/definitions/score_1_10" },
+        "weighted_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Must equal score x weight. Validated by business rules checker."
+        },
+        "rationale": { "type": "string", "minLength": 10 },
+        "raw_data": { "type": "string", "description": "Supporting data string from Raw Data Inputs" },
+        "scoring_methodology": { "type": "string" }
+      }
+    },
+
+    "risk_item": {
+      "type": "object",
+      "required": ["risk_id", "label", "severity", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "risk_id": { "type": "string" },
+        "label": { "type": "string" },
+        "severity": {
+          "type": "string",
+          "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+        },
+        "description": { "type": "string" },
+        "mitigation": { "type": "string" }
+      }
+    },
+
+    "catalyst_item": {
+      "type": "object",
+      "required": ["horizon", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "horizon": {
+          "type": "string",
+          "enum": ["90_DAY", "H1_2026", "H2_2026", "2027_PLUS"],
+          "description": "Standardised time horizon bucket"
+        },
+        "description": { "type": "string" },
+        "confirmed": { "type": "boolean" }
+      }
+    },
+
+    "tokenomics_project_entry": {
+      "type": "object",
+      "required": [
+        "project_id", "project_name", "token_symbol", "chain_type",
+        "category", "stage", "fdv_usd", "circ_supply_pct", "total_supply",
+        "lead_vcs", "composite_score", "tier", "signal",
+        "scorecard_dimensions", "token_distribution", "qualitative", "kpi_targets"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "project_id":       { "type": "string", "description": "Slug identifier, e.g. akash, filecoin, storj" },
+        "project_name":     { "type": "string" },
+        "token_symbol":     { "type": "string", "maxLength": 12 },
+        "chain_type":       { "type": "string", "examples": ["EVM L2", "Cosmos SDK", "Solana", "Ethereum (ERC-20)"] },
+        "category":         { "type": "string", "description": "Free-text category. Use depin_subcategory for DePIN reports." },
+        "stage": {
+          "type": "string",
+          "enum": ["pre_testnet", "testnet", "mainnet_no_revenue", "mainnet_with_revenue", "live_tge"]
+        },
+        "fdv_usd":          { "type": "number", "minimum": 0 },
+        "market_cap_usd":   { "type": "number", "minimum": 0 },
+        "circ_supply_pct":  { "type": "number", "minimum": 0, "maximum": 100 },
+        "total_supply":     { "type": "number", "minimum": 0 },
+        "token_price_usd":  { "type": "number", "minimum": 0 },
+        "tvl_usd":          { "type": "number", "minimum": 0 },
+        "lead_vcs":         { "type": "array", "items": { "type": "string" } },
+        "amount_raised_usd":    { "type": "number", "minimum": 0 },
+        "vc_markup_multiple":   { "type": "number", "minimum": 0 },
+        "composite_score":  { "$ref": "#/definitions/score_1_10" },
+        "tier":             { "$ref": "#/definitions/tier_enum" },
+        "signal":           { "$ref": "#/definitions/signal_enum" },
+        "rank":             { "type": "integer", "minimum": 1 },
+
+        "depin_subcategory": {
+          "$ref": "#/definitions/depin_subcategory_enum",
+          "description": "NEW v1.1.0 — DePIN subcategory for Hive Mind routing. Required for DePIN sector reports."
+        },
+        "depin_device_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "NEW v1.1.0 — Number of physical hardware units actively deployed (hotspots, GPUs, dashcams, RTK stations, weather stations). Critical DePIN deployment maturity signal."
+        },
+        "proof_of_work_mechanism": {
+          "$ref": "#/definitions/proof_of_work_mechanism_enum",
+          "description": "NEW v1.1.0 — Cryptographic or algorithmic method used to verify physical work. Agents use this to assess supply-side integrity."
+        },
+        "demand_revenue_monthly_usd": {
+          "type": "number",
+          "minimum": 0,
+          "description": "NEW v1.1.0 — Monthly revenue from paying end-customers (not token reward emissions). Distinguishes infrastructure-with-revenue DePIN from pure subsidy models. GEODNET: $500K/mo. Storj: growing."
+        },
+        "physical_coverage_metric": {
+          "type": "string",
+          "description": "NEW v1.1.0 — Human-readable real-world coverage claim. Examples: '40%+ global road coverage', '20K+ RTK stations in 150+ countries', '1M+ hotspots'."
+        },
+        "centralised_cloud_cost_discount_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "NEW v1.1.0 — Cost savings vs leading centralised provider (AWS/GCP). Compute DePIN: typically 60-85%. Storage DePIN (Storj): ~80% cheaper than AWS S3. Validates competitive cost-arbitrage thesis."
+        },
+        "anti_gaming_mechanism": {
+          "$ref": "#/definitions/anti_gaming_mechanism_enum",
+          "description": "NEW v1.1.0 — How the protocol prevents operators from faking physical work. Helium GPS_Cross_Validation was defeated at scale 2022 — agents use this to flag supply-side integrity risk."
+        },
+        "hardware_operator_cost_usd": {
+          "type": "number",
+          "minimum": 0,
+          "description": "NEW v1.1.0 — Estimated capital cost for one operator to deploy one hardware unit. Enables payback period modelling. GEODNET antenna: ~$150. Hivemapper dashcam: ~$300. Helium hotspot: ~$400."
+        },
+
+        "scorecard_dimensions": {
+          "type": "object",
+          "required": ["market_valuation", "tokenomics_design", "technology_product", "team_governance", "narrative_catalyst"],
+          "additionalProperties": false,
+          "properties": {
+            "market_valuation": {
+              "type": "object",
+              "description": "Section weight ~21%. FDV vs peers, circulating %, MC/TVL, VC markup.",
+              "required": ["section_weight", "dimensions"],
+              "properties": {
+                "section_weight": { "$ref": "#/definitions/weight_pct" },
+                "dimensions": { "type": "array", "items": { "$ref": "#/definitions/scored_dimension" } }
+              }
+            },
+            "tokenomics_design": {
+              "type": "object",
+              "description": "Section weight ~34%. Vesting, emissions, community %, treasury, utility, anti-dump.",
+              "required": ["section_weight", "dimensions"],
+              "properties": {
+                "section_weight": { "$ref": "#/definitions/weight_pct" },
+                "dimensions": { "type": "array", "items": { "$ref": "#/definitions/scored_dimension" } }
+              }
+            },
+            "technology_product": {
+              "type": "object",
+              "description": "Section weight ~20%. Tech moat, product readiness, audit quality, dev ecosystem.",
+              "required": ["section_weight", "dimensions"],
+              "properties": {
+                "section_weight": { "$ref": "#/definitions/weight_pct" },
+                "dimensions": { "type": "array", "items": { "$ref": "#/definitions/scored_dimension" } }
+              }
+            },
+            "team_governance": {
+              "type": "object",
+              "description": "Section weight ~14%. Team track record, investor quality, decentralization, regulatory.",
+              "required": ["section_weight", "dimensions"],
+              "properties": {
+                "section_weight": { "$ref": "#/definitions/weight_pct" },
+                "dimensions": { "type": "array", "items": { "$ref": "#/definitions/scored_dimension" } }
+              }
+            },
+            "narrative_catalyst": {
+              "type": "object",
+              "description": "Section weight ~11%. Narrative strength, catalyst pipeline, community, exchange listings.",
+              "required": ["section_weight", "dimensions"],
+              "properties": {
+                "section_weight": { "$ref": "#/definitions/weight_pct" },
+                "dimensions": { "type": "array", "items": { "$ref": "#/definitions/scored_dimension" } }
+              }
+            }
+          }
+        },
+
+        "token_distribution": {
+          "type": "object",
+          "required": ["community_airdrop_pct", "ecosystem_grants_pct", "team_advisors_pct", "investors_vcs_pct", "treasury_dao_pct"],
+          "additionalProperties": false,
+          "properties": {
+            "community_airdrop_pct":  { "type": "number", "minimum": 0, "maximum": 100 },
+            "ecosystem_grants_pct":   { "type": "number", "minimum": 0, "maximum": 100 },
+            "team_advisors_pct":      { "type": "number", "minimum": 0, "maximum": 100 },
+            "investors_vcs_pct":      { "type": "number", "minimum": 0, "maximum": 100 },
+            "treasury_dao_pct":       { "type": "number", "minimum": 0, "maximum": 100 },
+            "liquidity_mm_pct":       { "type": "number", "minimum": 0, "maximum": 100 },
+            "team_vest_years":        { "type": "number", "minimum": 0 },
+            "team_cliff_months":      { "type": "number", "minimum": 0 },
+            "investor_vest_years":    { "type": "number", "minimum": 0 },
+            "investor_cliff_months":  { "type": "number", "minimum": 0 },
+            "yr1_inflation_pct":      { "type": "number", "minimum": 0 },
+            "emission_type":          { "type": "string" },
+            "burn_mechanism":         { "type": "string" }
+          }
+        },
+
+        "qualitative": {
+          "type": "object",
+          "required": ["core_thesis", "demand_drivers", "competitive_moat", "primary_risk", "token_risk", "macro_correlation", "risk_mitigants"],
+          "additionalProperties": false,
+          "properties": {
+            "core_thesis":              { "type": "string", "minLength": 20 },
+            "demand_drivers":           { "type": "string" },
+            "competitive_moat":         { "type": "string" },
+            "primary_risk":             { "type": "string" },
+            "token_risk":               { "type": "string" },
+            "macro_correlation":        { "type": "string" },
+            "risk_mitigants":           { "type": "string" },
+            "novel_mechanism":          { "type": "string" },
+            "precedent_analogy":        { "type": "string" },
+            "long_term_value_accrual":  { "type": "string" }
+          }
+        },
+
+        "kpi_targets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tvl_6mo_target_usd":       { "type": "number", "minimum": 0 },
+            "tvl_12mo_target_usd":      { "type": "number", "minimum": 0 },
+            "daa_6mo_target":           { "type": "number", "minimum": 0 },
+            "tps_6mo_target":           { "type": "number", "minimum": 0 },
+            "monthly_revenue_6mo_usd":  { "type": "number", "minimum": 0 },
+            "custom_kpis": {
+              "type": "object",
+              "additionalProperties": { "type": "number" }
+            }
+          }
+        },
+
+        "catalysts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/catalyst_item" }
+        }
+      }
+    },
+
+    "comparable_token": {
+      "type": "object",
+      "required": ["token_symbol", "category", "fdv_usd", "mc_usd", "tvl_usd", "mc_tvl_ratio", "circ_pct"],
+      "additionalProperties": false,
+      "properties": {
+        "token_symbol": { "type": "string" },
+        "project_name": { "type": "string" },
+        "category":     { "type": "string" },
+        "fdv_usd":      { "type": "number", "minimum": 0 },
+        "mc_usd":       { "type": "number", "minimum": 0 },
+        "tvl_usd":      { "type": "number", "minimum": 0 },
+        "mc_tvl_ratio": { "type": "number", "minimum": 0 },
+        "circ_pct":     { "type": "number", "minimum": 0, "maximum": 100 },
+        "our_rating":   { "type": "string" },
+        "vs_target":    { "type": "string" }
+      }
+    },
+
+    "sector_summary_block": {
+      "type": "object",
+      "required": ["combined_market_cap_usd", "protocol_count", "narrative_overview", "bifurcation_analysis", "systemic_risks"],
+      "additionalProperties": false,
+      "properties": {
+        "combined_market_cap_usd":    { "type": "number", "minimum": 0 },
+        "protocol_count":             { "type": "integer", "minimum": 1 },
+        "narrative_overview":         { "type": "string", "minLength": 50 },
+        "bifurcation_analysis":       { "type": "string" },
+        "systemic_risks": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/risk_item" }
+        },
+        "portfolio_construction_note": { "type": "string" }
+      }
+    },
+
+    "scenario_block": {
+      "type": "object",
+      "required": ["probability_pct", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "probability_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "description":     { "type": "string" },
+        "price_targets": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+
+    "tokenomics_scorecard_report": {
+      "type": "object",
+      "title": "Tokenomics Scorecard Report",
+      "description": "Comparative 10-point weighted scorecard across 2-5 crypto projects. Used for pre-TGE and early-stage token evaluation.",
+      "required": ["metadata", "report_type_guard", "sector", "projects", "comparable_universe", "macro_thesis"],
+      "additionalProperties": false,
+      "properties": {
+        "metadata":           { "$ref": "#/definitions/metadata" },
+        "report_type_guard":  { "type": "string", "enum": ["tokenomics_scorecard"] },
+        "sector":             { "type": "string" },
+        "projects": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 10,
+          "items": { "$ref": "#/definitions/tokenomics_project_entry" }
+        },
+        "comparable_universe": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/comparable_token" }
+        },
+        "macro_thesis": { "type": "string", "minLength": 50 }
+      }
+    },
+
+    "sector_deep_dive_report": {
+      "type": "object",
+      "title": "Sector Deep Dive Report",
+      "description": "Multi-protocol sector analysis. Covers AI agent, DePIN, RWA, and other crypto sectors using the 10-point scorecard framework.",
+      "required": ["metadata", "report_type_guard", "sector", "sector_summary", "protocols"],
+      "additionalProperties": false,
+      "properties": {
+        "metadata":           { "$ref": "#/definitions/metadata" },
+        "report_type_guard":  { "type": "string", "enum": ["sector_deep_dive"] },
+        "sector":             { "type": "string" },
+        "sector_summary":     { "$ref": "#/definitions/sector_summary_block" },
+        "protocols": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 30,
+          "items": { "$ref": "#/definitions/tokenomics_project_entry" }
+        },
+        "top_picks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["rank", "protocol_id", "medal", "thesis_summary", "risk_summary", "positioning"],
+            "additionalProperties": false,
+            "properties": {
+              "rank":             { "type": "integer", "minimum": 1 },
+              "protocol_id":      { "type": "string" },
+              "medal":            { "type": "string", "enum": ["GOLD", "SILVER", "BRONZE", "NOTABLE"] },
+              "composite_score":  { "$ref": "#/definitions/score_1_10" },
+              "tier":             { "$ref": "#/definitions/tier_enum" },
+              "signal":           { "$ref": "#/definitions/signal_enum" },
+              "thesis_summary":   { "type": "string", "minLength": 30 },
+              "risk_summary":     { "type": "string" },
+              "positioning":      { "type": "string" }
+            }
+          }
+        },
+        "macro_scenario_analysis": {
+          "type": "object",
+          "properties": {
+            "bull_case":  { "$ref": "#/definitions/scenario_block" },
+            "base_case":  { "$ref": "#/definitions/scenario_block" },
+            "bear_case":  { "$ref": "#/definitions/scenario_block" }
+          }
+        }
+      }
+    },
+
+    "airdrop_intelligence_report": {
+      "type": "object",
+      "title": "Airdrop Intelligence Report",
+      "description": "Prioritised farming intelligence report using the 8-factor rubric v2. Covers 3-12 airdrop opportunities.",
+      "required": ["metadata", "report_type_guard", "rubric_version", "protocols"],
+      "additionalProperties": false,
+      "properties": {
+        "metadata":           { "$ref": "#/definitions/metadata" },
+        "report_type_guard":  { "type": "string", "enum": ["airdrop_intelligence"] },
+        "rubric_version":     { "type": "string", "examples": ["v2"] },
+        "protocols": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": { "$ref": "#/definitions/airdrop_protocol_entry" }
+        },
+        "global_risks": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/risk_item" }
+        }
+      }
+    },
+
+    "airdrop_protocol_entry": {
+      "type": "object",
+      "required": [
+        "protocol_id", "protocol_name", "token_symbol", "chain", "status",
+        "composite_score", "rank", "rubric_scores", "required_actions",
+        "risks", "analyst_note"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "protocol_id":          { "type": "string" },
+        "protocol_name":        { "type": "string" },
+        "token_symbol":         { "type": "string" },
+        "chain":                { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["CONFIRMED", "EXPLORATION", "SEASON_ACTIVE", "SPECULATIVE", "SNAPSHOT_TAKEN", "TGE_COMPLETE"]
+        },
+        "composite_score":      { "type": "number", "minimum": 0, "maximum": 10 },
+        "rank":                 { "type": "integer", "minimum": 1 },
+        "fdv_estimate_usd":     { "type": "number", "minimum": 0 },
+        "fdv_estimate_note":    { "type": "string" },
+        "est_cost_usd_low":     { "type": "number", "minimum": 0 },
+        "est_cost_usd_high":    { "type": "number", "minimum": 0 },
+        "time_commitment_hrs_week": { "type": "number", "minimum": 0 },
+        "timeline_estimate":    { "type": "string" },
+        "rubric_scores":        { "$ref": "#/definitions/airdrop_rubric_scores" },
+        "required_actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["step", "description"],
+            "additionalProperties": false,
+            "properties": {
+              "step":               { "type": "integer", "minimum": 1 },
+              "description":        { "type": "string" },
+              "is_mandatory":       { "type": "boolean" },
+              "estimated_cost_usd": { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "risks": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/risk_item" }
+        },
+        "synergies": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "analyst_note": { "type": "string", "minLength": 10 }
+      }
+    },
+
+    "airdrop_rubric_scores": {
+      "type": "object",
+      "description": "8-factor scoring rubric v2. Four factors are INVERTED — lower raw score = better outcome for farmer. Composite formula: Score = (Value x 0.35) + (Confirm x 0.20) + (Prosp x 0.10) + ((6-Satur) x 0.10) + ((6-Sybil) x 0.10) + ((6-Cost) x 0.07) + ((6-Time) x 0.05) + (Unlock x 0.03)",
+      "required": [
+        "value_potential", "confirmation_signal", "retroactive_prospective",
+        "wallet_saturation", "sybil_detection_risk", "cost_to_farm",
+        "time_commitment", "unlock_schedule_risk"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value_potential": {
+          "type": "object",
+          "description": "Weight: 35%. Rated 1-5. FDV comps, protocol valuation, prior benchmarks.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.35 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "confirmation_signal": {
+          "type": "object",
+          "description": "Weight: 20%. Rated 1-5. Confirmed founder/CMO statement = 5; speculation = 1.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.20 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "retroactive_prospective": {
+          "type": "object",
+          "description": "Weight: 10%. FORWARD score — 5 = fully farmable now; snapshot taken = 1.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.10 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "wallet_saturation": {
+          "type": "object",
+          "description": "Weight: 10%. INVERTED — 5 = low saturation (good); 1 = extreme saturation.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.10 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "sybil_detection_risk": {
+          "type": "object",
+          "description": "Weight: 10%. INVERTED — 5 = highest scrutiny (bad); 1 = minimal checks.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.10 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "cost_to_farm": {
+          "type": "object",
+          "description": "Weight: 7%. INVERTED — 5 = nearly free; 1 = very expensive.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.07 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "time_commitment": {
+          "type": "object",
+          "description": "Weight: 5%. INVERTED — 5 = minimal time; 1 = daily intensive engagement.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.05 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "unlock_schedule_risk": {
+          "type": "object",
+          "description": "Weight: 3%. FORWARD score — 5 = favorable vesting; 1 = instant full unlock.",
+          "required": ["score", "weight", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "score":    { "$ref": "#/definitions/score_1_5" },
+            "weight":   { "type": "number", "const": 0.03 },
+            "rationale":{ "type": "string" }
+          }
+        },
+        "composite_formula_note": {
+          "type": "string",
+          "const": "Score = (Value x 0.35) + (Confirm x 0.20) + (Prosp x 0.10) + ((6-Satur) x 0.10) + ((6-Sybil) x 0.10) + ((6-Cost) x 0.07) + ((6-Time) x 0.05) + (Unlock x 0.03)"
+        }
+      }
+    }
+
+  },
+
+  "oneOf": [
+    { "$ref": "#/definitions/tokenomics_scorecard_report" },
+    { "$ref": "#/definitions/sector_deep_dive_report" },
+    { "$ref": "#/definitions/airdrop_intelligence_report" }
+  ]
+}

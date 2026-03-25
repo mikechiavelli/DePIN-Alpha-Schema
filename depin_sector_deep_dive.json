@@ -1,0 +1,2368 @@
+{
+  "metadata": {
+    "report_id": "PFT-SECTOR-20260324-de91",
+    "report_type": "sector_deep_dive",
+    "analyst_id": "pft-alpha-registry",
+    "timestamp": "2026-03-24T10:00:00+00:00",
+    "data_as_of": "2026-03-24",
+    "methodology_version": "v1.0.0",
+    "source_urls": [
+      "https://coingecko.com",
+      "https://coinmarketcap.com",
+      "https://defillama.com",
+      "https://depinscan.io",
+      "https://dune.com",
+      "https://filecoin.io",
+      "https://akash.network",
+      "https://helium.com",
+      "https://io.net",
+      "https://grass.io",
+      "https://aethir.com",
+      "https://hivemapper.com",
+      "https://theblock.co",
+      "https://messari.io/assets/depin"
+    ],
+    "disclaimer": "Intelligence aggregation only. NOT financial or investment advice. ~88% of tokens lose value within 3 months. Never invest more than you can afford to lose. DYOR.",
+    "tags": [
+      "DePIN",
+      "compute",
+      "wireless",
+      "storage",
+      "bandwidth",
+      "sensor",
+      "sector-deep-dive",
+      "2026",
+      "infrastructure"
+    ]
+  },
+  "report_type_guard": "sector_deep_dive",
+  "sector": "Decentralized Physical Infrastructure Networks (DePIN)",
+  "sector_summary": {
+    "combined_market_cap_usd": 2200000000,
+    "protocol_count": 10,
+    "narrative_overview": "DePIN is one of the highest-capital-flow narratives in crypto as of March 2026, with ~440 active projects tracked by DePINScan collectively supporting 41.7M+ devices worldwide. The sector's combined market cap sits near $9B (CoinGecko category), though the top-10 protocols by quality score covered in this report represent ~$2.2B combined. The core thesis: blockchain token incentives can crowdsource real-world infrastructure faster and cheaper than corporate capital expenditure. The AI compute supercycle is the primary demand driver \u2014 every AI model needs training infrastructure, and decentralised GPU networks are undercutting AWS/GCP by 60-85%. The DePIN Flywheel (Burn-and-Mint Equilibrium) is now the dominant tokenomics design primitive, validated by Render Network's success.",
+    "bifurcation_analysis": "The sector bifurcates cleanly into two groups. Infrastructure-with-revenue protocols (Filecoin, Akash, Render, Aethir) have live paying customers and measurable on-chain revenue \u2014 these anchor the sector thesis. Incentive-first protocols (Grass, Helium, Hivemapper, io.net) are still in the subsidy phase: hardware operators are paid in tokens to bootstrap supply before organic demand materialises. The danger zone is protocols where supply has been built but demand has not arrived \u2014 Helium is the cautionary tale, with 1M+ hotspots but token price down 94% from ATH. The critical variable for every DePIN investment thesis is the same: does real-world demand (paying users) grow faster than token emissions?",
+    "systemic_risks": [
+      {
+        "risk_id": "DEPIN-SR-001",
+        "label": "Demand Cold Start Problem",
+        "severity": "HIGH",
+        "description": "All DePIN protocols face the chicken-and-egg problem: you need supply to attract demand, but supply providers need demand revenue to be economically rational. Token subsidies paper over this gap \u2014 but if demand never materialises, emissions become pure inflation.",
+        "mitigation": "Prioritise protocols with measurable paying customer traction (Akash GPU leases, Filecoin storage deals, Aethir enterprise contracts) over pure subsidy models."
+      },
+      {
+        "risk_id": "DEPIN-SR-002",
+        "label": "Hardware Commoditisation Risk",
+        "severity": "HIGH",
+        "description": "Centralised cloud providers (AWS, GCP, Azure) are aggressively cutting GPU prices and expanding capacity. If AWS undercuts decentralised networks on price AND reliability, the demand thesis collapses.",
+        "mitigation": "Decentralised networks currently hold 60-85% cost advantage. Monitor quarterly AWS/GCP GPU pricing vs. on-chain lease rates."
+      },
+      {
+        "risk_id": "DEPIN-SR-003",
+        "label": "Emission Inflation Death Spiral",
+        "severity": "HIGH",
+        "description": "Protocols with >20% Year-1 token inflation (io.net, Aethir) face structural sell pressure from operators liquidating rewards. If token price falls, operator reward value falls, operators exit, supply collapses, demand cannot be served.",
+        "mitigation": "Only invest in protocols with clear revenue-to-burn pathways or mathematically enforced deflation (BME model)."
+      },
+      {
+        "risk_id": "DEPIN-SR-004",
+        "label": "Proof of Physical Work Gaming",
+        "severity": "MEDIUM",
+        "description": "DePIN networks require verifiable proof that hardware is actually providing the claimed service. Helium's Proof-of-Coverage was gamed at scale via spoofed GPS signals. Any protocol without robust anti-gaming is vulnerable.",
+        "mitigation": "Prefer protocols using cryptographic proofs (Filecoin PoRep/PoSt) or AI-verified work (Hivemapper image quality scoring) over simple GPS attestation."
+      },
+      {
+        "risk_id": "DEPIN-SR-005",
+        "label": "Single-Sector Concentration",
+        "severity": "MEDIUM",
+        "description": "Compute DePIN (Akash, io.net, Aethir, Render) now represents ~60% of sector market cap. A single centralized AI breakthrough rendering decentralised compute 'unnecessary' would compress all compute valuations simultaneously.",
+        "mitigation": "Diversify across subcategories: compute, wireless, storage, sensor/data."
+      }
+    ],
+    "portfolio_construction_note": "Optimal DePIN allocation: 1 core infrastructure position (Filecoin or Akash), 1 compute-GPU position (Render or Aethir), 1 speculative wireless/sensor bet (Helium or Grass). Cap total DePIN at 10-15% of any crypto allocation given single-sector narrative risk. Avoid io.net at current dilution trajectory without confirmed revenue inflection."
+  },
+  "protocols": [
+    {
+      "project_id": "filecoin",
+      "project_name": "Filecoin",
+      "token_symbol": "FIL",
+      "chain_type": "Filecoin L1",
+      "category": "Decentralized Storage",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 1780000000,
+      "market_cap_usd": 693000000,
+      "circ_supply_pct": 38.9,
+      "total_supply": 1957946475,
+      "token_price_usd": 0.91,
+      "tvl_usd": 45000000,
+      "lead_vcs": [
+        "Sequoia Capital",
+        "Andreessen Horowitz (a16z)",
+        "Pantera Capital",
+        "Blockchain Capital"
+      ],
+      "amount_raised_usd": 205000000,
+      "vc_markup_multiple": 5.0,
+      "composite_score": 7.62,
+      "tier": "TIER_2",
+      "signal": "ACCUMULATE",
+      "rank": 1,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "FDV $1.78B is above DePIN median but justified by 10yr track record and enterprise pipeline. Trading near all-time lows ($0.81 ATL reached).",
+              "raw_data": "FDV: $1.78B | MC: $693M | Price: $0.91 | ATH: $237 | ATL: $0.81",
+              "scoring_methodology": "Lower FDV vs comparable DePIN peers = higher score. Benchmarked vs Akash, Aethir, io.net."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 4,
+              "weighted_score": 0.2,
+              "rationale": "Only 38.9% circulating \u2014 significant future dilution overhang. 772M FIL still locked with complex vesting schedule.",
+              "raw_data": "Circ: 763M / Total: 1.96B = 38.9% | 772M locked + 300M TBD locked",
+              "scoring_methodology": ">80%=9, 60-80%=7, 40-60%=5, <40%=3."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "MC $693M vs active storage revenue proxy ~$45M. Real enterprise deals (Bermuda government, Santiment AI dev rankings #1). Improving.",
+              "raw_data": "MC: $693M | Revenue proxy: $45M | 24h vol: $115M",
+              "scoring_methodology": "MC/TVL <0.5=strong(9-10), 0.5-1=good(7-8), 1-3=fair(5-6), >5=expensive(<4)."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 8,
+              "weighted_score": 0.32,
+              "rationale": "ICO price was $5 \u2014 current price $0.91 means VCs are massively underwater. Minimal VC sell pressure at current levels.",
+              "raw_data": "ICO price: $5 | Current: $0.91 | VCs effectively -82% from entry",
+              "scoring_methodology": "Lower VC markup = less insider sell pressure."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 6,
+              "weighted_score": 0.42,
+              "rationale": "Complex linear vesting with block rewards. 6yr vest for early investors. Long cliff but 61% supply still to enter market over time.",
+              "raw_data": "Investor vest: 6yr linear | Team: multi-year | Locked: 1.07B FIL remaining",
+              "scoring_methodology": "Longer vest + lower VC% = higher score."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 6,
+              "weighted_score": 0.36,
+              "rationale": "~8-10% annual emission from block rewards. Partially offset by baseline minting tied to actual storage usage.",
+              "raw_data": "Yr1 inflation: ~8-10% | Emission type: Baseline minting (usage-linked) + block rewards",
+              "scoring_methodology": "<2%=10, 2-5%=9, 5-8%=8, 8-12%=6."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "70%+ of supply designated for mining/storage rewards and ecosystem. Community-heavy distribution model.",
+              "raw_data": "Mining rewards: 70% | Team/advisors: 15% | Foundation: 15%",
+              "scoring_methodology": ">60% total community+ecosystem=10, >50%=9, >40%=8."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 7,
+              "weighted_score": 0.28,
+              "rationale": "Filecoin Foundation controls treasury. Protocol Labs governance maturing. On-chain FIPs (Filecoin Improvement Proposals) active.",
+              "raw_data": "Foundation: 15% | On-chain governance via FIPs | Community grant program active",
+              "scoring_methodology": "DAO maturity, on-chain vs multisig, transparency scored qualitatively."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 8,
+              "weighted_score": 0.56,
+              "rationale": "FIL required as collateral by storage providers AND as payment by clients. Dual-demand sink. Storage deals lock FIL for deal duration.",
+              "raw_data": "Mechanism: FIL collateral for miners + client payment. Storage deal lock-up creates supply sink.",
+              "scoring_methodology": "Explicit fee accrual or collateral requirement = highest score."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Storage provider collateral slashing on protocol violations. Baseline minting ties rewards to actual usage. Partially deflationary design.",
+              "raw_data": "Slashing: yes | Baseline minting: usage-linked | No explicit buyback program",
+              "scoring_methodology": "Formal burn, bonding, slashing, or committed buyback = high score."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 9,
+              "weighted_score": 0.72,
+              "rationale": "PoRep + PoSt cryptographic proofs are the gold standard for verifiable storage. IPFS integration = massive developer distribution. #1 in AI dev activity (Santiment, Feb 2026). Bermuda government deal validates enterprise traction.",
+              "raw_data": "GitHub activity rank: #1 AI dev (Santiment 2026) | Audits: Trail of Bits, multiple | 1.5T+ queries served",
+              "scoring_methodology": "Technical novelty vs existing solutions, replicability, defensibility."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 9,
+              "weighted_score": 0.54,
+              "rationale": "Mainnet live since 2020 \u2014 most mature DePIN protocol in coverage. Bermuda government data initiative live. AI data storage vertical growing.",
+              "raw_data": "Stage: Mainnet with enterprise revenue | Bermuda gov deal live Q1 2026",
+              "scoring_methodology": "Live + revenue=9-10."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 9,
+              "weighted_score": 0.27,
+              "rationale": "Multiple Trail of Bits audits. Open-source since 2020. No major exploits in 5+ years of mainnet operation.",
+              "raw_data": "Auditors: Trail of Bits (multiple) | Bug bounty: active | Mainnet: 5+ years no major exploit",
+              "scoring_methodology": ">=3 reputable audits + clean history = 9-10."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 9,
+              "weighted_score": 0.27,
+              "rationale": "348 developer activity score (Santiment Feb 2026) \u2014 #1 ranking across all DePIN protocols. IPFS integration gives massive developer reach.",
+              "raw_data": "Santiment dev score: 348.03 (#1) | GitHub: highly active | IPFS integration: 50M+ nodes",
+              "scoring_methodology": ">300 commits/mo=10, >150=8."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 9,
+              "weighted_score": 0.45,
+              "rationale": "Juan Benet (Protocol Labs founder) \u2014 YC alumni, Stanford CS. Created both IPFS and Filecoin. Protocol Labs has shipped multiple production protocols.",
+              "raw_data": "Founder: Juan Benet (Stanford, YC S14) | Protocol Labs: IPFS, libp2p, Filecoin all shipped",
+              "scoring_methodology": "Prior exits, crypto protocol experience, academic credentials."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 9,
+              "weighted_score": 0.27,
+              "rationale": "a16z, Sequoia, Pantera, Blockchain Capital \u2014 Tier-1 across all categories. $205M ICO remains one of crypto's largest.",
+              "raw_data": "Lead VCs: a16z, Sequoia, Pantera, Blockchain Capital | Raised: $205M",
+              "scoring_methodology": "Top-10 crypto fund=9-10."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "Filecoin Foundation independent from Protocol Labs. Active FIP governance. 6+ years of progressive decentralization.",
+              "raw_data": "Filecoin Foundation: independent | FIP governance: active | Storage providers: 4000+",
+              "scoring_methodology": "Each public, time-bound milestone earns partial credit."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "SEC 'alleged securities' label on CoinGecko creates compliance uncertainty. No licenses held. US regulatory risk is elevated.",
+              "raw_data": "SEC: alleged securities label | Licenses: 0 | US regulatory status: uncertain",
+              "scoring_methodology": "Proactive licensing = highest. SEC scrutiny = lower score."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "AI data storage is the dominant demand narrative. Filecoin positions as permanent record layer for AI training datasets and model weights.",
+              "raw_data": "Category: Decentralized Storage / AI Data Layer | Santiment: #1 AI dev activity",
+              "scoring_methodology": "Alignment with dominant 2026 AI/crypto narratives."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Bermuda government initiative live. AI data narrative accelerating. No single blockbuster catalyst but steady enterprise pipeline.",
+              "raw_data": "Catalysts: Bermuda gov data initiative; AI storage partnerships; developer grant expansion",
+              "scoring_methodology": "2+ confirmed near-term catalysts=9-10, 1 confirmed=7-8."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 8,
+              "weighted_score": 0.16,
+              "rationale": "Large developer community via IPFS. 4000+ storage providers worldwide. Enterprise partnerships growing.",
+              "raw_data": "Storage providers: 4000+ | IPFS nodes: 50M+ | Developer community: large",
+              "scoring_methodology": "Quality weighted over raw numbers."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 9,
+              "weighted_score": 0.09,
+              "rationale": "$115M+ 24h trading volume. Listed on Binance, Coinbase, and all Tier-1 exchanges.",
+              "raw_data": "24h Vol: $115M+ | Listed: Binance, Coinbase, Kraken, OKX",
+              "scoring_methodology": "Tier-1 CEX with deep liquidity=9-10."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 70,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 15,
+        "investors_vcs_pct": 0,
+        "treasury_dao_pct": 15,
+        "yr1_inflation_pct": 9.0,
+        "emission_type": "Baseline minting (usage-linked block rewards) + vesting unlocks",
+        "burn_mechanism": "Storage provider collateral slashing. No explicit token burn. Baseline minting partially links supply to actual usage demand."
+      },
+      "qualitative": {
+        "core_thesis": "Filecoin is the picks-and-shovels storage layer for the AI data economy. PoRep/PoSt cryptographic proofs are the gold standard for verifiable decentralised storage. #1 AI developer activity score (Santiment Feb 2026) validates that builders are choosing Filecoin for AI infrastructure.",
+        "demand_drivers": "AI companies storing training datasets and model weights; Web3 dApps needing permanent storage; governments (Bermuda deal); NFT.Storage and Audius as consumer integrations; IPFS-native developer ecosystem.",
+        "competitive_moat": "Cryptographic proof system (PoRep+PoSt) is genuinely hard to replicate \u2014 10 years in development. IPFS integration gives 50M+ node distribution. #1 ranking in AI developer activity signals ecosystem alignment.",
+        "primary_risk": "61% of supply still to enter circulation creates persistent dilution overhang. SEC 'alleged securities' label limits US institutional participation. AWS/GCP increasingly competitive on storage pricing.",
+        "token_risk": "Complex emission schedule makes future supply hard to model. ICO participants are deeply underwater reducing conviction. Near all-time lows suggests market skepticism despite improving fundamentals.",
+        "macro_correlation": "Moderate crypto beta. AI narrative provides partial positive correlation to AI sector momentum. Less volatile than pure-governance tokens due to utility demand sink.",
+        "risk_mitigants": "Protocol usage directly requires FIL collateral \u2014 genuine demand sink. Enterprise deals (Bermuda government) provide fundamental floor. Near-ATL entry provides attractive risk/reward if AI storage thesis materialises.",
+        "novel_mechanism": "Proof of Replication (PoRep) and Proof of Spacetime (PoSt) \u2014 cryptographic verification that data is stored correctly and continuously. Baseline minting ties new FIL creation to actual storage capacity added, not just time.",
+        "long_term_value_accrual": "Storage deal payments + provider collateral requirements = FIL locked supply. Success = Filecoin becomes the S3 of Web3 with FIL as the access token."
+      },
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 80000000,
+        "tvl_12mo_target_usd": 200000000,
+        "custom_kpis": {
+          "storage_providers_target": 5000,
+          "ai_storage_deals_target": 1000
+        }
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "Bermuda government data initiative expansion; AI storage partnership announcements",
+          "confirmed": true
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Developer grant program expansion; IPFS v2 integration",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "Major AI company storage deal; FVM smart contract ecosystem growth",
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "project_id": "akash",
+      "project_name": "Akash Network",
+      "token_symbol": "AKT",
+      "chain_type": "Cosmos SDK (PoS)",
+      "category": "Decentralized Cloud Compute",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 209000000,
+      "market_cap_usd": 140000000,
+      "circ_supply_pct": 67.2,
+      "total_supply": 388539008,
+      "token_price_usd": 0.54,
+      "tvl_usd": 12000000,
+      "lead_vcs": [
+        "Multicoin Capital",
+        "Dragonfly Capital",
+        "Coinbase Ventures"
+      ],
+      "amount_raised_usd": 20000000,
+      "vc_markup_multiple": 4.0,
+      "composite_score": 7.85,
+      "tier": "TIER_2",
+      "signal": "ACCUMULATE",
+      "rank": 2,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 9,
+              "weighted_score": 0.54,
+              "rationale": "FDV $209M is the lowest of the compute DePIN group. Significantly discounted vs Aethir ($314M FDV) and io.net despite superior product maturity. -93% from ATH = deep value entry.",
+              "raw_data": "FDV: $209M | MC: $140M | Price: $0.54 | ATH: $8.08 (Apr 2021)",
+              "scoring_methodology": "Lower FDV vs comparable DePIN compute peers = higher score."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 7,
+              "weighted_score": 0.35,
+              "rationale": "67% circulating \u2014 above-average for DePIN sector. 261M of 388M max supply circulating. Moderate future dilution.",
+              "raw_data": "Circ: 261M | Max: 388M | Circ%: 67%",
+              "scoring_methodology": ">80%=9, 60-80%=7, 40-60%=5, <40%=3."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "MC $140M vs active compute revenue ~$12M. AKT +71% 30-day gains signals market recognition of BME upgrade catalyst. Venice.ai and FLock.io integrations confirmed.",
+              "raw_data": "MC: $140M | Revenue proxy: $12M | 30d gain: +71%",
+              "scoring_methodology": "MC/TVL <0.5=strong(9-10), 0.5-1=good(7-8)."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 8,
+              "weighted_score": 0.32,
+              "rationale": "VC markup ~4x from last round. Low relative to sector. AKT well below VC cost basis given post-2021 drawdown.",
+              "raw_data": "VC markup: ~4x | Lead VCs: Multicoin, Dragonfly, Coinbase Ventures",
+              "scoring_methodology": "Lower VC markup = less insider sell pressure."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "Standard Cosmos-style vesting. Team and investor allocations locked. 33% remaining supply still to unlock over several years.",
+              "raw_data": "Total: 388M | Circ: 261M | Remaining: 127M | Vest: multi-year standard Cosmos",
+              "scoring_methodology": "Longer vest + lower VC% = higher score."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "~7-8% staking emission annually. BME upgrade (vote passed March 14, 2026) will mandate AKT burned for deployments \u2014 net deflationary at scale if adopted.",
+              "raw_data": "Yr1 inflation: ~7-8% staking rewards | BME vote: passed March 14 2026 | Net effect: deflationary at scale",
+              "scoring_methodology": "BME = bonus point for deflationary mechanism."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 8,
+              "weighted_score": 0.56,
+              "rationale": "~62% community + ecosystem. Cosmos-native community governance. Active grant program for Akash deployments.",
+              "raw_data": "Community + ecosystem: ~62% | Grant program: active | Provider incentives: ongoing",
+              "scoring_methodology": ">60%=10, >50%=9, >40%=8."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 7,
+              "weighted_score": 0.28,
+              "rationale": "On-chain governance via Cosmos SDK. Active proposal voting. Community controls grants and parameter changes.",
+              "raw_data": "Governance: on-chain Cosmos | Active proposals: multiple | Community treasury: yes",
+              "scoring_methodology": "DAO maturity, on-chain governance scored qualitatively."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 9,
+              "weighted_score": 0.63,
+              "rationale": "BME upgrade: AKT must be purchased from open market and burned to cover GPU deployment costs. Direct demand-supply coupling. Most significant DePIN tokenomics upgrade of Q1 2026.",
+              "raw_data": "BME: AKT purchased + burned for deployments | Venice.ai integration | FLock.io integration confirmed",
+              "scoring_methodology": "Explicit fee accrual or burn tied to revenue = highest score."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "BME creates structurally enforced buy pressure from open market purchases. Provider staking requirements. Slashing for provider violations.",
+              "raw_data": "BME buy+burn | Provider staking | Slashing conditions | No discretionary buyback needed",
+              "scoring_methodology": "Mathematically enforced buy pressure = high score."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 8,
+              "weighted_score": 0.64,
+              "rationale": "Reverse auction marketplace (customers set price, providers compete) creates genuine cost efficiency. Kubernetes-native. 60-85% cheaper than AWS GPU instances. Venice.ai and FLock.io integrations validate AI compute use case.",
+              "raw_data": "GPU cost: 60-85% cheaper than AWS | Kubernetes: native | Venice.ai: live integration | FLock.io: confirmed",
+              "scoring_methodology": "Technical novelty, replicability, defensibility."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "Mainnet live and generating revenue from GPU leases. AI inference and training workloads growing. Real paying customers.",
+              "raw_data": "Stage: Mainnet with revenue | GPU leases: active | AI inference: live",
+              "scoring_methodology": "Live + revenue=9-10, live no revenue=7-8."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Cosmos SDK security model. Multiple audits. No major exploits. Potential chain migration adds execution risk.",
+              "raw_data": "Chain: Cosmos SDK | Audits: multiple | Migration risk: potential EVM migration being considered",
+              "scoring_methodology": "2 audits=7-8."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Active developer ecosystem. Cloudmos, Praetor App, Awesome Akash template library. Strong documentation.",
+              "raw_data": "Tools: Cloudmos, Praetor App | Templates: Awesome Akash | Docs: comprehensive",
+              "scoring_methodology": ">150 commits/mo=8, >80=7."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "Greg Osuri (CEO) is respected Cosmos ecosystem builder. Overcash Labs has consistently shipped. Cosmos ecosystem integration provides cross-chain credibility.",
+              "raw_data": "CEO: Greg Osuri | Company: Overcash Labs | Track record: Cosmos ecosystem contributor",
+              "scoring_methodology": "Prior exits, crypto protocol experience."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "Multicoin Capital (top-10), Dragonfly Capital (top-10), Coinbase Ventures \u2014 strong institutional backing.",
+              "raw_data": "Lead VCs: Multicoin, Dragonfly, Coinbase Ventures",
+              "scoring_methodology": "Top-10 crypto fund=9-10, Top-25=7-8."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "On-chain Cosmos governance active. Provider set growing. Community controls protocol parameters.",
+              "raw_data": "Governance: on-chain | Provider decentralization: growing | Community: active",
+              "scoring_methodology": "Each milestone earns partial credit."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "No regulatory licenses held. AKT positioned as utility token for compute marketplace. Relatively low regulatory risk vs. financial protocols.",
+              "raw_data": "Licenses: 0 | Token type: utility (compute marketplace) | Regulatory risk: moderate",
+              "scoring_methodology": "Proactive licensing = highest."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 9,
+              "weighted_score": 0.45,
+              "rationale": "AI GPU compute is the dominant infrastructure narrative. BME upgrade positions AKT as the most tokenomically sound decentralized GPU protocol post-upgrade.",
+              "raw_data": "Category: Decentralized Cloud / GPU Compute | BME narrative: strongest in compute DePIN",
+              "scoring_methodology": "Alignment with dominant 2026 AI/crypto narratives."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 9,
+              "weighted_score": 0.27,
+              "rationale": "BME upgrade live (March 2026). Venice.ai integration confirmed. FLock.io integration confirmed. +71% 30-day price signal.",
+              "raw_data": "BME: live March 2026 | Venice.ai: confirmed | FLock.io: confirmed | 30d: +71%",
+              "scoring_methodology": "2+ confirmed near-term catalysts=9-10."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 7,
+              "weighted_score": 0.14,
+              "rationale": "Active Cosmos community. Growing developer base. 227 unique social mentions. GPU provider community expanding.",
+              "raw_data": "Social mentions: 227 unique | Provider community: growing | Cosmos ecosystem: active",
+              "scoring_methodology": "Quality weighted over raw numbers."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 7,
+              "weighted_score": 0.07,
+              "rationale": "$12-17M 24h volume. Listed on Coinbase, Binance, Kraken. Thin relative to market cap \u2014 institutional positioning still early.",
+              "raw_data": "24h Vol: $12-17M | Listed: Coinbase, Binance, Kraken",
+              "scoring_methodology": "Tier-1 CEX with deep liquidity=9-10. Moderate volume=7."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 62,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 20,
+        "investors_vcs_pct": 18,
+        "treasury_dao_pct": 0,
+        "yr1_inflation_pct": 7.5,
+        "emission_type": "PoS staking rewards (inflationary) + BME burn (deflationary at utilization)",
+        "burn_mechanism": "BME: AKT purchased from open market and burned for every GPU deployment. Net deflationary at sufficient network utilization. Passed governance vote March 14, 2026."
+      },
+      "qualitative": {
+        "core_thesis": "Akash is the most tokenomically credible decentralised GPU compute protocol post-BME upgrade. The reverse auction marketplace delivers 60-85% cost savings vs AWS. BME ties AKT demand directly to GPU lease revenue \u2014 the closest thing to a 'revenue bond' in DePIN tokenomics.",
+        "demand_drivers": "AI inference startups needing cheap GPU access; blockchain node operators; Venice.ai inference layer; FLock.io federated learning; any developer willing to trade reliability SLAs for 80% cost savings.",
+        "competitive_moat": "Cosmos SDK gives cross-chain payment flexibility. Reverse auction creates genuine market pricing pressure. Venice.ai and FLock.io integrations are sticky enterprise clients. BME creates mathematically enforced demand regardless of token price sentiment.",
+        "primary_risk": "Potential blockchain migration from Cosmos introduces execution risk. Fierce competition from Render, io.net, Aethir, and centralised clouds. AKT remains down 93% from ATH \u2014 weak long-term holder conviction.",
+        "token_risk": "33% supply still unlocking. If GPU lease revenue doesn't grow faster than staking emissions, BME mechanism undershoots and inflation dominates.",
+        "macro_correlation": "High AI narrative beta. AKT moves significantly on AI sector news. Cosmos ecosystem correlation moderate.",
+        "risk_mitigants": "BME is mathematically enforced demand \u2014 not discretionary. Low FDV $209M = minimal institutional resistance. Venice.ai integration creating immediate real revenue pathway.",
+        "long_term_value_accrual": "GPU compute fees \u2192 AKT open market purchase + burn. Success = 'AWS for Web3' with AKT as the deflationary access token."
+      },
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 25000000,
+        "tvl_12mo_target_usd": 60000000,
+        "monthly_revenue_6mo_usd": 2000000
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "BME upgrade live; Venice.ai and FLock.io integrations scale up; first on-chain burn metrics published",
+          "confirmed": true
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Chain migration evaluation decision; enterprise GPU partnership announcements",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "Revenue-funded rewards transition; institutional custody integration",
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "project_id": "helium",
+      "project_name": "Helium",
+      "token_symbol": "HNT",
+      "chain_type": "Solana",
+      "category": "Decentralized Wireless (DeWi)",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 280000000,
+      "market_cap_usd": 236000000,
+      "circ_supply_pct": 83.5,
+      "total_supply": 223000000,
+      "token_price_usd": 1.27,
+      "tvl_usd": 3000000,
+      "lead_vcs": [
+        "Multicoin Capital",
+        "Andreessen Horowitz (a16z)",
+        "Pantera Capital",
+        "Alameda Research (pre-collapse)"
+      ],
+      "amount_raised_usd": 365000000,
+      "vc_markup_multiple": 8.0,
+      "composite_score": 6.41,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "rank": 6,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "FDV $280M reasonable given 1M+ deployed hotspots and 166K+ mobile subscribers. -94% from ATH provides value framing. SEC lawsuit now dismissed.",
+              "raw_data": "FDV: $280M | MC: $236M | Price: $1.27 | ATH: $54.88 | SEC: dismissed Apr 2025",
+              "scoring_methodology": "Lower FDV vs DePIN peers = higher score."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "83.5% circulating \u2014 one of the highest in DePIN coverage. Hard cap of 223M HNT. Halving schedule reduces future issuance.",
+              "raw_data": "Circ: 186M | Max: 223M | Circ%: 83.5% | Hard cap: yes",
+              "scoring_methodology": ">80%=9, 60-80%=7."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 5,
+              "weighted_score": 0.3,
+              "rationale": "Buybacks suspended Jan 2026 removes key demand mechanism. $3.4M monthly mobile revenue not flowing back to HNT. Token demand thesis weakened short-term.",
+              "raw_data": "MC: $236M | Mobile revenue: $3.4M/mo | Buybacks: suspended Jan 2026",
+              "scoring_methodology": "Suspended buybacks = lower score. MC/revenue ratio unfavorable."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 4,
+              "weighted_score": 0.16,
+              "rationale": "Total raised $365M at high valuations including Alameda (pre-collapse). VC cost basis significantly above current prices \u2014 potential sell pressure at recovery.",
+              "raw_data": "Raised: $365M | Alameda: investor (pre-collapse) | VC cost basis: well above $1.27",
+              "scoring_methodology": "High VC markup = more insider sell pressure."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "Bitcoin-style halving schedule every 2 years provides predictable supply path. veHNT governance simplifies token model. Post-halving reduced emissions.",
+              "raw_data": "Halving: 2yr cycle | Last halving: Aug 1 2025 | Daily emissions: 20,548 HNT (50% reduction)",
+              "scoring_methodology": "Halving schedule = bonus. But Alameda legacy concerns vesting."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "Post-halving ~8% annual emissions. Third halving Aug 2025 cut daily from 41K to 20.5K HNT. Deflationary trajectory established.",
+              "raw_data": "Post-halving inflation: ~8% | Third halving: Aug 1 2025 | Daily: 20,548 HNT",
+              "scoring_methodology": "5-8%=8, halving bonus reduces effective rate."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 8,
+              "weighted_score": 0.56,
+              "rationale": "Mining/hotspot rewards constitute majority of HNT distribution. Community-operated hardware network. 166K+ mobile subscribers = real user base.",
+              "raw_data": "Hotspot rewards: majority | Subscribers: 166K+ | Community operators: 1M+ hotspots",
+              "scoring_methodology": ">60%=10, >50%=9, >40%=8."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 7,
+              "weighted_score": 0.28,
+              "rationale": "veHNT governance live via HIP 141. Monthly release votes streamline decision-making. Nova Labs as core developer accountable to HNT voters.",
+              "raw_data": "veHNT governance: live | HIP 141: approved | Monthly release votes: active",
+              "scoring_methodology": "On-chain governance with monthly cadence = solid."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 6,
+              "weighted_score": 0.42,
+              "rationale": "HNT burned to create Data Credits for network usage. Buybacks suspended \u2014 revenue no longer flowing to token. AT&T and T-Mobile offload relationships validate network utility.",
+              "raw_data": "Data Credits: HNT burned | Carrier offload: AT&T, T-Mobile active | Buybacks: suspended",
+              "scoring_methodology": "Partial fee accrual via Data Credit burns but buyback removal hurts."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "Halving reduces miner emissions. veHNT lock-up creates supply hold. But buyback suspension removed key demand mechanism.",
+              "raw_data": "Halving: yes | veHNT lock: yes | Buybacks: removed Jan 2026",
+              "scoring_methodology": "Mixed \u2014 good supply mechanics but demand mechanism removed."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 7,
+              "weighted_score": 0.56,
+              "rationale": "Proof of Coverage for wireless validation. 1M+ hotspots deployed globally. AT&T and T-Mobile carrier offload validates commercial telecom integration. GPS spoofing historical weakness.",
+              "raw_data": "Proof of Coverage: yes | Hotspots: 1M+ | Carrier offload: AT&T, T-Mobile | GPS spoofing: historical risk",
+              "scoring_methodology": "Real-world deployment at scale + enterprise validation."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "Helium Mobile has 166K+ paying subscribers. 1.16M daily connections. Real telecom revenue stream independent of token price.",
+              "raw_data": "Mobile subscribers: 166K+ | Daily connections: 1.16M | Monthly revenue: $3.4M",
+              "scoring_methodology": "Live + revenue=9-10, live no revenue=7-8."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Solana migration (Apr 2023) improved throughput. Nova Labs core developer. Multiple audits post-migration.",
+              "raw_data": "Chain: Solana (migrated Apr 2023) | Audits: post-migration | Core dev: Nova Labs",
+              "scoring_methodology": "Solid post-migration."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Active hotspot and IoT developer community. IoT sensor ecosystem growing. Less developer-facing than compute protocols.",
+              "raw_data": "IoT ecosystem: active | Hotspot community: 1M+ operators | Dev activity: moderate",
+              "scoring_methodology": ">80 commits/mo=7, moderate ecosystem."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "Amir Haleem (CEO Nova Labs) \u2014 experienced hardware and telecom executive. Solana migration executed successfully. SEC lawsuit successfully dismissed.",
+              "raw_data": "CEO: Amir Haleem | Company: Nova Labs | SEC: dismissed Apr 2025",
+              "scoring_methodology": "Strong execution track record despite challenges."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Multicoin and a16z = Tier-1. But Alameda association (pre-collapse) and $365M raised at peak valuations creates legacy overhang.",
+              "raw_data": "VCs: Multicoin, a16z, Pantera | Alameda: historical (pre-collapse) | Total raised: $365M",
+              "scoring_methodology": "Tier-1 funds positive, Alameda legacy negative."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "veHNT governance live. Monthly HIPs. Community controls emission parameters. Most decentralised governance model in wireless DePIN.",
+              "raw_data": "veHNT: live | HIPs: monthly | Community control: emission parameters",
+              "scoring_methodology": "Active monthly governance = strong decentralization."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "SEC lawsuit dismissed April 2025 under crypto-friendly SEC. Significant regulatory relief. Only DePIN protocol with cleared SEC status.",
+              "raw_data": "SEC: dismissed Apr 2025 | FCC compliance: yes | Carrier partnerships: AT&T, T-Mobile",
+              "scoring_methodology": "SEC clearance = bonus. Highest regulatory score in coverage."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 7,
+              "weighted_score": 0.35,
+              "rationale": "DeWi narrative exists but is weaker than compute in 2026. 5G infrastructure tokenization is compelling but slower-moving than AI GPU demand.",
+              "raw_data": "Category: Decentralized Wireless (DeWi) | 5G tokenization narrative: moderate",
+              "scoring_methodology": "Weaker vs AI compute narrative in 2026 cycle."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Network expansion and Helium Plus growth planned. Business development focus replacing buybacks. No single blockbuster catalyst confirmed.",
+              "raw_data": "Catalysts: network expansion; Helium Plus; strategic BD focus replacing buybacks",
+              "scoring_methodology": "Soft catalysts = 5-6."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 7,
+              "weighted_score": 0.14,
+              "rationale": "1M+ hotspot operators = massive engaged hardware community. 166K+ mobile subscribers = real user base. HNT +90% 7-day recently shows community latent excitement.",
+              "raw_data": "Hotspot operators: 1M+ | Mobile subscribers: 166K+ | 7d return: +90% recently",
+              "scoring_methodology": "Large real-world hardware community = strong."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 6,
+              "weighted_score": 0.06,
+              "rationale": "$6M 24h volume \u2014 thin for market cap. Institutional position sizing would be constrained.",
+              "raw_data": "24h Vol: $6M | Listed: major CEXs | Liquidity: thin relative to cap",
+              "scoring_methodology": "Thin liquidity limits institutional entry."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 65,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 20,
+        "investors_vcs_pct": 15,
+        "treasury_dao_pct": 0,
+        "yr1_inflation_pct": 8.0,
+        "emission_type": "Bitcoin-style halving every 2 years. Hard cap 223M HNT. Aug 2025 was third halving.",
+        "burn_mechanism": "HNT burned to create non-transferable Data Credits for network data transfer fees. Buyback program suspended January 2026 to redirect capital to subscriber growth."
+      },
+      "qualitative": {
+        "core_thesis": "Helium is the cautionary DePIN tale that is slowly becoming a recovery story. 1M+ hardware deployments, AT&T/T-Mobile carrier integrations, and SEC clearance are genuine accomplishments. The buyback suspension is a short-term negative but signals maturity \u2014 redirecting revenue to growth rather than price support.",
+        "demand_drivers": "IoT device connectivity; Helium Mobile subscribers (166K+ and growing); AT&T/T-Mobile data offload; enterprise sensor networks.",
+        "competitive_moat": "First-mover in decentralised wireless at scale. 1M+ hotspot network is effectively irreplicable at current token prices \u2014 new entrants face a multi-year hardware deployment lag. AT&T/T-Mobile relationships are sticky commercial contracts.",
+        "primary_risk": "Token price 94% below ATH despite 1M+ hardware deployments \u2014 demand-thesis failure risk is real. Buyback suspension removes key HNT demand mechanism. Macro supply chain concerns (Qatar helium disruption) create indirect risk narrative.",
+        "token_risk": "Buyback suspension removes buy pressure. Monthly revenue $3.4M no longer flowing to HNT. Token must prove demand via Data Credit burns alone.",
+        "macro_correlation": "Low crypto correlation \u2014 moves more on telecom/IoT adoption news. AT&T/T-Mobile offload creates partial TradFi floor.",
+        "risk_mitigants": "SEC clearance = institutional access unlocked. Halving + hard cap provide supply constraint. veHNT governance = aligned incentives. Real subscriber revenue provides fundamental floor.",
+        "long_term_value_accrual": "Data Credit burns \u2192 HNT supply reduction. Mobile subscriber growth \u2192 revenue floor \u2192 potential buyback resumption. Success = decentralised wireless layer for IoT and 5G with deflationary HNT."
+      },
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 5000000,
+        "tvl_12mo_target_usd": 10000000,
+        "custom_kpis": {
+          "mobile_subscribers_target": 300000,
+          "daily_connections_target": 2000000
+        }
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "Q1 2026 subscriber growth metrics; hotspot deployment acceleration data published",
+          "confirmed": false
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Network expansion; Helium Plus growth; new carrier partnership announcement",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "Potential buyback resumption if subscriber growth justifies it; veHNT governance upgrade",
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "project_id": "grass",
+      "project_name": "Grass Network",
+      "token_symbol": "GRASS",
+      "chain_type": "Solana",
+      "category": "Decentralized Bandwidth / AI Data",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 351000000,
+      "market_cap_usd": 182000000,
+      "circ_supply_pct": 54.2,
+      "total_supply": 1000000000,
+      "token_price_usd": 0.336,
+      "tvl_usd": 5000000,
+      "lead_vcs": [
+        "Polychain Capital",
+        "Tribe Capital",
+        "Hack VC"
+      ],
+      "amount_raised_usd": 20000000,
+      "vc_markup_multiple": 6.0,
+      "composite_score": 6.73,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "rank": 5,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "FDV $351M reasonable for 3M+ users and AI data collection revenue. -91% from ATH ($3.89) at current $0.34 provides deep value framing if thesis holds.",
+              "raw_data": "FDV: $351M | MC: $182M | Price: $0.336 | ATH: $3.89 (Nov 2024)",
+              "scoring_methodology": "FDV reasonable vs AI data collection peers."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 5,
+              "weighted_score": 0.25,
+              "rationale": "54% circulating. Large unlock events are recurring risk \u2014 181M tokens (18%) unlocked Oct 2025, 55M more Feb 2026. Persistent dilution pressure.",
+              "raw_data": "Circ: 542M | Total: 1B | Circ%: 54.2% | Major unlocks: Oct 2025 (181M), Feb 2026 (55M)",
+              "scoring_methodology": "60-80%=7, 40-60%=5."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 6,
+              "weighted_score": 0.36,
+              "rationale": "3M+ users monetising bandwidth for AI training data. Revenue proxy $5M. AI data collection demand strong from LLM companies.",
+              "raw_data": "MC: $182M | Users: 3M+ | Revenue proxy: $5M | AI training data demand: strong",
+              "scoring_methodology": "MC/revenue ratio moderate."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 7,
+              "weighted_score": 0.28,
+              "rationale": "VC markup ~6x from last round. Moderate. VCs partially above water given Nov 2024 ATH activity.",
+              "raw_data": "VC markup: ~6x | Lead VCs: Polychain, Tribe Capital, Hack VC",
+              "scoring_methodology": "6x = moderate sell pressure risk."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 5,
+              "weighted_score": 0.35,
+              "rationale": "Large recurring unlock events (181M in Oct 2025, 55M in Feb 2026) create predictable sell pressure windows. Vesting schedule not investor-friendly.",
+              "raw_data": "Unlocks: 181M (Oct 2025), 55M (Feb 2026) | Vest: structured but large tranches",
+              "scoring_methodology": "Large front-loaded unlocks = lower score."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 5,
+              "weighted_score": 0.3,
+              "rationale": "Circulating supply increased 16.1% in 30 days as of recent data. High effective inflation from unlocks and ongoing rewards.",
+              "raw_data": "30-day supply growth: +16.1% | Ongoing rewards: bandwidth contribution incentives",
+              "scoring_methodology": "12-20%=4, ~16% effective inflation = 5."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 8,
+              "weighted_score": 0.56,
+              "rationale": "Community-first bandwidth reward model. 3M+ users earning GRASS for unused bandwidth. Large retail distribution.",
+              "raw_data": "Community rewards: majority | Users: 3M+ | Distribution: retail-first",
+              "scoring_methodology": ">50% community distribution = 9."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 6,
+              "weighted_score": 0.24,
+              "rationale": "Early stage DAO. Governance still team-led. Community input growing but not fully on-chain.",
+              "raw_data": "DAO: early stage | Governance: team-led | Community input: growing",
+              "scoring_methodology": "Early stage governance = 6."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "GRASS earned by contributors, burned/purchased by AI companies for data access. Direct AI training data demand drives token economics.",
+              "raw_data": "Mechanism: bandwidth contribution \u2192 GRASS rewards | AI companies pay for data access | Burn: partial",
+              "scoring_methodology": "Direct AI data demand = good utility link."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "No formal burn or buyback. Unlock schedule creates recurring sell pressure. Demand from AI companies provides partial offset.",
+              "raw_data": "No formal burn | No buyback | Sell pressure: recurring unlock events",
+              "scoring_methodology": "No formal mechanism = 5."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 7,
+              "weighted_score": 0.56,
+              "rationale": "Privacy-preserving bandwidth sharing \u2014 only accesses unused bandwidth, never personal data or browsing. AI training data use case is genuinely novel. 3M users validates distribution moat.",
+              "raw_data": "Privacy design: no personal data accessed | Users: 3M+ | AI training: primary use case",
+              "scoring_methodology": "Novel use case + strong user distribution."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "Live product with 3M+ users. AI data collection pipeline active. Revenue from AI companies confirmed.",
+              "raw_data": "Users: 3M+ | Revenue: confirmed from AI companies | Stage: live mainnet",
+              "scoring_methodology": "Live + revenue=7-8."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Solana-based. Standard security practices. No major audits publicly disclosed at scale.",
+              "raw_data": "Chain: Solana | Audits: not prominently disclosed | No major exploits known",
+              "scoring_methodology": "1-2 audits = 6."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Consumer-focused product, not developer-facing. Active user growth but limited developer ecosystem.",
+              "raw_data": "Users: 3M+ | Developer ecosystem: limited | Focus: consumer bandwidth sharing",
+              "scoring_methodology": "Consumer-focused = lower dev ecosystem score."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 7,
+              "weighted_score": 0.35,
+              "rationale": "Strong execution \u2014 3M users acquired rapidly. Team background in data infrastructure. First mover in AI bandwidth monetisation.",
+              "raw_data": "User growth: 3M+ | Market position: first-mover | Execution: strong",
+              "scoring_methodology": "Strong execution track record."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Polychain Capital (top-10), Hack VC (respected), Tribe Capital. Good but not elite-tier backing.",
+              "raw_data": "VCs: Polychain, Tribe Capital, Hack VC | Raised: $20M",
+              "scoring_methodology": "Top-25 fund = 7-8."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Early-stage decentralization. Network is currently centralised at the data collection layer. Roadmap to decentralise data routing exists.",
+              "raw_data": "Current: semi-centralised data collection | Roadmap: progressive decentralization planned",
+              "scoring_methodology": "Early stage = 6."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Privacy-first design helps regulatory positioning. No licenses held. Web scraping for AI training faces evolving legal landscape globally.",
+              "raw_data": "Privacy design: yes | Licenses: 0 | Risk: web scraping legal landscape",
+              "scoring_methodology": "Privacy design = positive, no licenses = neutral."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "AI data collection is a genuine gap market. LLM companies need vast training data \u2014 Grass provides it via distributed bandwidth. Strong narrative alignment.",
+              "raw_data": "Category: Bandwidth / AI Data Collection | Narrative: AI training data demand",
+              "scoring_methodology": "Strong AI data narrative alignment."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "AI sector momentum provides tailwind. No specific confirmed near-term catalyst beyond broader sector recovery.",
+              "raw_data": "Catalysts: AI sector momentum | Specific confirmed: none",
+              "scoring_methodology": "Sector tailwind only = 6."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 8,
+              "weighted_score": 0.16,
+              "rationale": "3M+ users is exceptional for a DePIN protocol. Strong retail engagement. GRASS appears regularly in trending searches.",
+              "raw_data": "Users: 3M+ | Trending: yes | Retail engagement: high",
+              "scoring_methodology": ">2M users = 8."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 7,
+              "weighted_score": 0.07,
+              "rationale": "$22M 24h volume. Listed on Binance, Coinbase. Reasonable liquidity for market cap.",
+              "raw_data": "24h Vol: $22M | Listed: Binance, Coinbase",
+              "scoring_methodology": "Moderate liquidity = 7."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 55,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 20,
+        "investors_vcs_pct": 25,
+        "treasury_dao_pct": 0,
+        "yr1_inflation_pct": 16.0,
+        "emission_type": "Bandwidth contribution rewards + scheduled unlock tranches",
+        "burn_mechanism": "Partial burn when AI companies purchase data access. No formal ongoing burn schedule."
+      },
+      "qualitative": {
+        "core_thesis": "Grass monetises the one resource everyone has and doesn't use \u2014 idle internet bandwidth \u2014 and converts it into AI training data revenue. The 3M+ user base is the moat. The question is whether AI data demand grows faster than token unlock schedule.",
+        "demand_drivers": "LLM companies needing web scraping data at scale; AI research institutions; enterprise data collection; public data aggregation for model training.",
+        "competitive_moat": "3M+ users = massive distributed bandwidth network that would cost billions to replicate commercially. Privacy-first design reduces regulatory friction vs competitors.",
+        "primary_risk": "Large recurring unlock schedule creates predictable sell pressure. Web scraping legal landscape is evolving \u2014 potential regulatory restrictions on AI training data collection. 46% supply still to enter market.",
+        "token_risk": "High effective inflation (~16%) from unlocks + ongoing rewards. No formal burn mechanism means demand must grow faster than supply to maintain price.",
+        "macro_correlation": "High AI narrative beta. Moves significantly on AI sector sentiment.",
+        "risk_mitigants": "3M+ user distribution is genuine moat. AI training data demand is structural. Solana integration provides low-cost infrastructure.",
+        "long_term_value_accrual": "AI companies pay for data \u2192 GRASS purchased/burned \u2192 supply reduction. Success = Grass becomes the default data layer for AI training with compounding demand."
+      },
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 8000000,
+        "tvl_12mo_target_usd": 20000000,
+        "custom_kpis": {
+          "users_target": 5000000,
+          "ai_company_clients_target": 50
+        }
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "AI sector sentiment recovery; next major unlock to pass without price collapse as market test",
+          "confirmed": false
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Major AI company data partnership announcement; formal burn mechanism introduction",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "5M user milestone; enterprise data licensing deals; DAO governance launch",
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "project_id": "aethir",
+      "project_name": "Aethir",
+      "token_symbol": "ATH",
+      "chain_type": "Ethereum / Arbitrum / Solana",
+      "category": "Enterprise GPU Compute (DePIN)",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 314000000,
+      "market_cap_usd": 138000000,
+      "circ_supply_pct": 43.7,
+      "total_supply": 42000000000,
+      "token_price_usd": 0.0076,
+      "tvl_usd": 8000000,
+      "lead_vcs": [
+        "Merit Circle",
+        "Animoca Brands",
+        "OKX Ventures"
+      ],
+      "amount_raised_usd": 40000000,
+      "vc_markup_multiple": 7.0,
+      "composite_score": 6.55,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "rank": 7,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "FDV $314M reasonable for enterprise GPU network. 430K+ GPUs across 94 countries. -93% from ATH ($0.105) provides deep value framing.",
+              "raw_data": "FDV: $314M | MC: $138M | Price: $0.0076 | ATH: $0.105 | GPUs: 430K+",
+              "scoring_methodology": "FDV reasonable for enterprise GPU coverage."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 4,
+              "weighted_score": 0.2,
+              "rationale": "Only 43.7% circulating with 57% still to unlock. 335.72% YoY supply inflation (CoinCodex) is among the worst in this universe. Severe dilution risk.",
+              "raw_data": "Circ: 18.4B | Total: 42B | Circ%: 43.7% | YoY inflation: 335.72%",
+              "scoring_methodology": "40-60%=5, <40%=3. Inflation history is extreme."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "$344.4M Digital Asset Treasury via Predictive Oncology partnership creates structural ATH buyer. H100 GPU enterprise contracts = real revenue.",
+              "raw_data": "MC: $138M | DAT: $344.4M (Predictive Oncology) | H100 contracts: enterprise level",
+              "scoring_methodology": "DAT creates structural buy pressure offsetting MC/revenue concerns."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 6,
+              "weighted_score": 0.24,
+              "rationale": "ICO price $0.013, current $0.0076 \u2014 VCs underwater from ICO. But 2024 early buyers at ATH $0.105 have severe losses. Legacy holders = sell pressure at recovery.",
+              "raw_data": "ICO: $0.013 | Current: $0.0076 | ATH holders: -93% underwater",
+              "scoring_methodology": "Complex \u2014 VCs underwater but ATH holders = sell pressure."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 5,
+              "weighted_score": 0.35,
+              "rationale": "56% supply still locked. 335% YoY inflation history signals aggressive emission schedule. Structured vesting but scale is concern.",
+              "raw_data": "Locked: 56% | YoY inflation: 335% | Vest: structured multi-year",
+              "scoring_methodology": "High inflation history = lower score."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 3,
+              "weighted_score": 0.18,
+              "rationale": "335% YoY supply inflation is catastrophic for token price. Even with enterprise revenue, supply absorption challenge is extreme. Worst emission profile in this coverage.",
+              "raw_data": "YoY inflation: 335.72% | Emission: aggressive reward pool + unlock schedule",
+              "scoring_methodology": ">20%=2. 335% deserves score of 2-3."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "Large community allocation for checker/validator rewards. Distributed across 94 countries. Gaming and AI validator community.",
+              "raw_data": "Community: ~60% | Countries: 94 | Validators: global",
+              "scoring_methodology": ">50% community = 9, but emission concerns temper."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 6,
+              "weighted_score": 0.24,
+              "rationale": "Governance developing. $344.4M DAT with Predictive Oncology = novel treasury model using enterprise revenue.",
+              "raw_data": "DAT: $344.4M | Governance: developing | Treasury: enterprise-backed",
+              "scoring_methodology": "Novel treasury model + early governance = 6."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "ATH required to activate GPU containers. DAT model creates structural buying (capital used to buy + stake ATH). Enterprise H100 revenue = real fee accrual.",
+              "raw_data": "ATH: required for GPU activation | DAT: buy+stake mechanism | H100 revenue: enterprise contracts",
+              "scoring_methodology": "Container activation requirement = genuine utility."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "DAT buy+stake reduces circulating supply. But 335% historical inflation overwhelms any anti-dump mechanism at current adoption levels.",
+              "raw_data": "DAT staking: yes | Buy+stake: structural | But 335% inflation history = dominant",
+              "scoring_methodology": "Structural buyer insufficient vs extreme inflation."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 8,
+              "weighted_score": 0.64,
+              "rationale": "Only enterprise-grade GPU-as-a-service DePIN. H100 and B300 GPU access at enterprise level. 430K+ GPUs in 94 countries = massive physical infrastructure moat.",
+              "raw_data": "Enterprise grade: yes | GPUs: 430K+ | Countries: 94 | H100+B300: supported | Value: $400M+",
+              "scoring_methodology": "Enterprise-grade physical moat = strong differentiation."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "Mainnet live with enterprise clients. B300 GPU integration announced. AethirClaw expansion in progress. Real enterprise AI contracts.",
+              "raw_data": "Stage: mainnet with enterprise revenue | B300: integrating | AethirClaw: announced",
+              "scoring_methodology": "Enterprise revenue = 8."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Multi-chain (ETH/Arbitrum/Solana). Audits performed. No major exploits.",
+              "raw_data": "Chains: ETH, Arbitrum, Solana | Audits: yes | Major exploits: none known",
+              "scoring_methodology": "Multi-chain with audits = 6-7."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Active development. B300 integration shows continued R&D investment. WeatherXM partnership expands ecosystem.",
+              "raw_data": "B300: integrating | WeatherXM: $100M partnership | Active R&D",
+              "scoring_methodology": "Active expansion = 7."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 7,
+              "weighted_score": 0.35,
+              "rationale": "Strong execution on physical GPU deployment. 430K+ GPUs deployed globally is extraordinary logistics. Enterprise contract wins validate team.",
+              "raw_data": "GPU deployment: 430K+ in 94 countries | Enterprise contracts: yes | Logistics: exceptional",
+              "scoring_methodology": "Exceptional physical deployment execution."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Merit Circle, Animoca Brands, OKX Ventures \u2014 respected gaming/Web3 investors. Not elite AI-specific VCs.",
+              "raw_data": "VCs: Merit Circle, Animoca, OKX Ventures | Raised: $40M",
+              "scoring_methodology": "Top-25 gaming/Web3 funds = 7."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "GPU network is physically decentralised (94 countries) but governance is still centralised. DAO development in progress.",
+              "raw_data": "Physical: 94 countries | Governance: centralised currently | DAO: in development",
+              "scoring_methodology": "Physical decentralization good, governance central = 6."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "GPU compute service model has cleaner regulatory profile than financial DePIN. No regulatory actions. Enterprise contracts imply compliance.",
+              "raw_data": "Regulatory profile: compute service (clean) | Enterprise: implies compliance | Licenses: 0",
+              "scoring_methodology": "Clean compute service model = 6."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "Enterprise AI GPU is the hottest infrastructure narrative. B300 GPU integration positions Aethir at the frontier of GPU compute.",
+              "raw_data": "Category: Enterprise GPU / DePIN | B300 integration: frontier positioning",
+              "scoring_methodology": "Enterprise AI GPU = dominant 2026 narrative."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "B300 GPU supercluster deployment; AethirClaw launch; DAT expansion with Predictive Oncology.",
+              "raw_data": "Catalysts: B300 supercluster; AethirClaw; DAT expansion",
+              "scoring_methodology": "Multiple confirmed catalysts = 7-8."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 6,
+              "weighted_score": 0.12,
+              "rationale": "Global validator community across 94 countries. Social sentiment 4.2/5 on Coinbase. 37% bullish Twitter sentiment.",
+              "raw_data": "Validators: 94 countries | Sentiment: 4.2/5 | Twitter bullish: 37%",
+              "scoring_methodology": "Global distribution = positive."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 8,
+              "weighted_score": 0.08,
+              "rationale": "$28-49M 24h volume. Listed on Binance, Coinbase, Kraken. Strong liquidity relative to market cap.",
+              "raw_data": "24h Vol: $28-49M | Listed: Binance, Coinbase, Kraken",
+              "scoring_methodology": "High relative volume = 8."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 60,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 20,
+        "investors_vcs_pct": 20,
+        "treasury_dao_pct": 0,
+        "yr1_inflation_pct": 50.0,
+        "emission_type": "GPU checker/validator rewards + unlock schedule. 335% YoY historical inflation from aggressive reward emissions.",
+        "burn_mechanism": "DAT model: capital used to buy + stake ATH to activate GPU clusters. Structural buyer but insufficient vs current emission rate."
+      },
+      "qualitative": {
+        "core_thesis": "Aethir has built the most impressive physical GPU network in DePIN \u2014 430K+ H100-class GPUs across 94 countries is genuinely extraordinary logistics. The problem is the tokenomics: 335% YoY supply inflation means the physical asset is real but the token is an inflation machine. The DAT model (enterprise revenue \u2192 buy + stake ATH) is the thesis-saver if it scales.",
+        "demand_drivers": "Enterprise AI companies needing H100 access at scale; cloud gaming platforms; AI inference providers; companies seeking GPU redundancy away from AWS/GCP concentration.",
+        "competitive_moat": "430K+ physically deployed GPUs creates a 2-3 year head start vs any new entrant. Enterprise relationships (H100 contracts) are multi-year and sticky. B300 integration keeps Aethir at the GPU frontier.",
+        "primary_risk": "335% YoY supply inflation is the defining risk. Even with enterprise revenue, token holders are absorbing massive dilution. 56% supply still to enter markets. ATH holders deeply underwater = persistent sell pressure at recovery.",
+        "token_risk": "Extreme dilution trajectory. DAT staking mechanism is promising but needs to scale 10x to offset emission pressure at current token price.",
+        "macro_correlation": "High AI narrative beta. Nvidia correlation (positive). Enterprise GPU demand cycle = key driver.",
+        "risk_mitigants": "Enterprise H100 revenue is real and sticky. DAT provides structural buyer. B300 expansion positions network at GPU frontier. Physical infrastructure moat is irreplicable.",
+        "long_term_value_accrual": "Enterprise GPU revenue \u2192 DAT buy+stake \u2192 ATH supply lock. Success = DAT model scales to absorb emissions entirely and ATH becomes deflationary enterprise compute token."
+      },
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 15000000,
+        "tvl_12mo_target_usd": 40000000,
+        "custom_kpis": {
+          "gpu_count_target": 600000,
+          "enterprise_contracts_target": 50,
+          "dat_volume_usd_target": 500000000
+        }
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "B300 GPU supercluster global deployment; AethirClaw product launch",
+          "confirmed": true
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "DAT model expansion; additional Nasdaq-listed company partnerships",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "Emission reduction announcement; DAO governance launch; enterprise client disclosure",
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "project_id": "ionet",
+      "project_name": "io.net",
+      "token_symbol": "IO",
+      "chain_type": "Solana",
+      "category": "Decentralized GPU Compute (AI-focused)",
+      "stage": "mainnet_no_revenue",
+      "fdv_usd": 86000000,
+      "market_cap_usd": 32000000,
+      "circ_supply_pct": 37.7,
+      "total_supply": 800000000,
+      "token_price_usd": 0.108,
+      "tvl_usd": 1000000,
+      "lead_vcs": [
+        "Multicoin Capital",
+        "Animoca Brands",
+        "OKX Ventures",
+        "Delphi Ventures"
+      ],
+      "amount_raised_usd": 30000000,
+      "vc_markup_multiple": 12.0,
+      "composite_score": 5.12,
+      "tier": "TIER_3",
+      "signal": "MONITOR_ONLY",
+      "rank": 9,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "FDV $86M is lowest in this coverage \u2014 potential deep value if GPU lease revenue inflects. -93% from ATH. April 28 unlock of 95M IO (~$11.7M) = imminent risk.",
+              "raw_data": "FDV: $86M | MC: $32M | Price: $0.108 | ATH: ~$4.18 | April 28 unlock: 95M IO",
+              "scoring_methodology": "Lowest FDV in coverage = potential value but high dilution."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 3,
+              "weighted_score": 0.15,
+              "rationale": "Only 37.7% circulating \u2014 lowest in this coverage. 62% supply still to unlock. April 28 2026 unlock of 95M IO = 4.37% supply increase in one event.",
+              "raw_data": "Circ: 301M | Max: 800M | Circ%: 37.7% | Apr 28 unlock: 95M IO | Team+investor: large allocation",
+              "scoring_methodology": "<40%=3. Worst dilution profile in this coverage."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 4,
+              "weighted_score": 0.24,
+              "rationale": "MC $32M but near-zero confirmed GPU lease revenue. Token utility 'debated' \u2014 network usage growing but direct IO value accrual unclear.",
+              "raw_data": "MC: $32M | Revenue: near-zero confirmed | Token utility: debated (per market commentary)",
+              "scoring_methodology": ">5 MC/revenue = expensive or unproven."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 3,
+              "weighted_score": 0.12,
+              "rationale": "VC markup ~12x from last round. Binance Launchpool listing at much higher prices = strong institutional sell pressure at any recovery.",
+              "raw_data": "VC markup: ~12x | Binance Launchpool: listed at peak | Sell pressure: high",
+              "scoring_methodology": "12x = high insider sell pressure."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 3,
+              "weighted_score": 0.21,
+              "rationale": "62% supply still locked. April 28 unlock of 95M IO from team and investors is imminent and large. Historically large unlocks add sell pressure.",
+              "raw_data": "Apr 28 2026: 95M IO unlock (team+investors) | Total remaining: ~500M | Vest: structured but large",
+              "scoring_methodology": "Large imminent unlock = low integrity score."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 4,
+              "weighted_score": 0.24,
+              "rationale": "13.29M IO unlock March 11 2026 (+4.37% circulating). April 28: additional 95M. Effective inflation rate exceeds 20% from scheduled unlocks alone.",
+              "raw_data": "Mar 2026 unlock: 13.29M (4.37%) | Apr 2026 unlock: 95M | Effective inflation: >20%",
+              "scoring_methodology": ">20%=2-4."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 6,
+              "weighted_score": 0.42,
+              "rationale": "Community allocation exists but specific breakdown not publicly prominent. Binance Launchpool model tends to favour exchange over community.",
+              "raw_data": "Community: moderate | Binance Launchpool: exchange-first model",
+              "scoring_methodology": "Moderate community allocation = 6."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 5,
+              "weighted_score": 0.2,
+              "rationale": "Early stage governance. No formal DAO announced. Team-led decision-making currently.",
+              "raw_data": "DAO: not yet | Governance: team-led | Treasury: early stage",
+              "scoring_methodology": "No DAO = 5."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 5,
+              "weighted_score": 0.35,
+              "rationale": "IO is access token for GPU compute marketplace. Direct value accrual 'debated' per market commentary. Growing network usage but token demand link unclear.",
+              "raw_data": "Utility: GPU marketplace access | Direct accrual: debated | Network usage: growing",
+              "scoring_methodology": "Debated utility = 5."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 3,
+              "weighted_score": 0.09,
+              "rationale": "No formal burn or buyback. Large unlock events = predictable dump windows. No anti-dump mechanism confirmed.",
+              "raw_data": "Burn: none | Buyback: none | Anti-dump: none confirmed",
+              "scoring_methodology": "No mechanism = 3."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 7,
+              "weighted_score": 0.56,
+              "rationale": "GPU aggregation from multiple providers into a unified compute marketplace. Venice.ai and other AI platforms use io.net. Competitive pricing vs centralised alternatives.",
+              "raw_data": "Model: GPU aggregation marketplace | Users: AI inference platforms | Pricing: competitive",
+              "scoring_methodology": "Novel aggregation model but not deeply defensible."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 6,
+              "weighted_score": 0.36,
+              "rationale": "Mainnet live but revenue not yet confirmed at scale. Network usage growing. 'No revenue = can't confirm' status per on-chain analysis.",
+              "raw_data": "Stage: mainnet live | Revenue: early/unclear | Network: growing",
+              "scoring_methodology": "Live but no confirmed revenue = 6."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Solana-based. Standard audits. No major security incidents.",
+              "raw_data": "Chain: Solana | Audits: standard | Incidents: none major",
+              "scoring_methodology": "Standard audits = 6."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Active GitHub. Developer documentation improving. Still early compared to mature protocols.",
+              "raw_data": "GitHub: active | Docs: improving | Maturity: early",
+              "scoring_methodology": "Active but early = 6."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 7,
+              "weighted_score": 0.35,
+              "rationale": "Strong technical team from Solana ecosystem. Quick execution on GPU marketplace. Network usage growing.",
+              "raw_data": "Background: Solana ecosystem | Execution: fast | Network growth: yes",
+              "scoring_methodology": "Good execution, limited track record."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Multicoin Capital (top-10), Delphi Ventures, Animoca, OKX Ventures. Solid but VC markup of 12x raises sell pressure concern.",
+              "raw_data": "VCs: Multicoin, Delphi, Animoca, OKX | Raised: $30M | Markup: 12x",
+              "scoring_methodology": "Top-25 funds = 7, but markup concern."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Solana ecosystem provides some decentralisation. No specific DAO timeline published.",
+              "raw_data": "Chain: Solana | DAO: no timeline | Governance: early",
+              "scoring_methodology": "No timeline = 6."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Compute marketplace model is relatively clean regulatory profile. No actions taken.",
+              "raw_data": "Regulatory profile: compute marketplace (clean) | Actions: none",
+              "scoring_methodology": "Clean profile = 6."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "Decentralized GPU for AI is the strongest 2026 narrative. io.net positioned as the Solana-native GPU marketplace.",
+              "raw_data": "Category: Decentralised GPU / AI Compute | Chain: Solana (strong 2026 narrative)",
+              "scoring_methodology": "AI GPU narrative = strong."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "April 28 unlock is the dominant near-term event \u2014 and it is negative, not positive. No confirmed positive catalysts offsetting the unlock.",
+              "raw_data": "Apr 28: 95M IO unlock (bearish) | Positive catalysts: none confirmed",
+              "scoring_methodology": "Dominant near-term event is bearish = 5."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 6,
+              "weighted_score": 0.12,
+              "rationale": "Moderate community. Binance Launchpool gave wide initial distribution but engagement mixed.",
+              "raw_data": "Community: moderate | Binance distribution: wide | Engagement: mixed",
+              "scoring_methodology": "Moderate = 6."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 7,
+              "weighted_score": 0.07,
+              "rationale": "$8-10M 24h volume. Listed on Binance, Bybit. Reasonable for current market cap.",
+              "raw_data": "24h Vol: $8-10M | Listed: Binance, Bybit | Circ MC: $32M",
+              "scoring_methodology": "Reasonable for cap = 7."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 40,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 25,
+        "investors_vcs_pct": 35,
+        "treasury_dao_pct": 0,
+        "yr1_inflation_pct": 25.0,
+        "emission_type": "Scheduled vesting unlocks (team + investors) + ongoing compute rewards",
+        "burn_mechanism": "None confirmed. No buyback or formal burn mechanism in place."
+      },
+      "qualitative": {
+        "core_thesis": "io.net is the cheapest FDV bet on AI GPU compute in this coverage \u2014 but it is cheap for a reason. The combination of 62% supply still unlocking, 12x VC markup, April 28 large unlock, and unconfirmed revenue makes this a MONITOR ONLY position until revenue inflects.",
+        "demand_drivers": "AI inference startups needing cheap Solana-native GPU access; ML training workloads; blockchain node operators.",
+        "competitive_moat": "Solana-native integration = natural GPU partner for Solana AI ecosystem. Competitive pricing. Multicoin/Delphi backing provides ecosystem connections.",
+        "primary_risk": "April 28 2026: 95M IO unlock from team and investors = likely significant sell pressure. 12x VC markup creates persistent recovery resistance. Revenue not yet confirmed at meaningful scale.",
+        "token_risk": "Worst dilution profile in this coverage combined with highest VC markup. Recovery from current prices faces sustained seller supply.",
+        "macro_correlation": "High AI GPU narrative beta. Moves with Solana ecosystem.",
+        "risk_mitigants": "Lowest FDV in coverage = highest upside if revenue inflects. Multicoin backing provides network effects. Solana AI ecosystem tailwind.",
+        "long_term_value_accrual": "GPU compute fees \u2192 IO demand. Success = Solana-native AI compute layer with token demand tied to GPU utilization. Currently unproven."
+      },
+      "kpi_targets": {
+        "custom_kpis": {
+          "monthly_gpu_revenue_target": 1000000,
+          "circulating_pct_target_12mo": 55.0
+        }
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "April 28 unlock event (monitor for sell pressure absorption); first public revenue metrics",
+          "confirmed": true
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Revenue inflection confirmation; DAO governance announcement",
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "project_id": "hivemapper",
+      "project_name": "Hivemapper",
+      "token_symbol": "HONEY",
+      "chain_type": "Solana",
+      "category": "Decentralized Mapping / Sensor Data",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 17000000,
+      "market_cap_usd": 15000000,
+      "circ_supply_pct": 57.2,
+      "total_supply": 10000000000,
+      "token_price_usd": 0.00265,
+      "tvl_usd": 500000,
+      "lead_vcs": [
+        "Multicoin Capital",
+        "Solana Ventures"
+      ],
+      "amount_raised_usd": 18000000,
+      "vc_markup_multiple": 5.0,
+      "composite_score": 5.48,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "rank": 8,
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN peers",
+              "weight": 0.06,
+              "score": 9,
+              "weighted_score": 0.54,
+              "rationale": "FDV $17M is the lowest in this coverage \u2014 if mapping data moat is real, this is extreme value. Google Maps TAM is enormous. 40%+ global map coverage achieved.",
+              "raw_data": "FDV: $17M | MC: $15M | Coverage: 40%+ global roads | TAM: Google Maps ($8.5B revenue)",
+              "scoring_methodology": "Lowest FDV with real product = highest value score."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 5,
+              "weighted_score": 0.25,
+              "rationale": "57% circulating but 10B max supply creates psychological unit bias. Supply growing as mapping contributors earn HONEY. Moderate dilution.",
+              "raw_data": "Circ: 5.7B | Max: 10B | Circ%: 57.2% | Unit: micro-denomination",
+              "scoring_methodology": "40-60%=5."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 6,
+              "weighted_score": 0.36,
+              "rationale": "MC $15M. Mapping data sold to enterprise customers (logistics, autonomous vehicles, city planning). Revenue model validated but scale limited.",
+              "raw_data": "MC: $15M | Revenue: enterprise map data sales | Volume: $350K 24h",
+              "scoring_methodology": "Small scale enterprise revenue."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 6,
+              "weighted_score": 0.24,
+              "rationale": "VC markup ~5x. Multicoin entry at significantly higher valuations. VCs partially above current prices.",
+              "raw_data": "VC markup: ~5x | VCs: Multicoin, Solana Ventures",
+              "scoring_methodology": "5x = moderate."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 6,
+              "weighted_score": 0.42,
+              "rationale": "Contributor-earning model ties new supply to actual mapping work done. More aligned than pure time-based vesting. But ongoing emissions are high.",
+              "raw_data": "Model: work-to-earn (mapping) | Ongoing emissions: contributor rewards",
+              "scoring_methodology": "Work-to-earn model = better alignment than time-vest."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 4,
+              "weighted_score": 0.24,
+              "rationale": "Ongoing HONEY rewards for mapping contribute continuous inflation. Supply growing significantly as more drivers contribute.",
+              "raw_data": "Inflation: ongoing mapping rewards | Supply growth: continuous | Rate: estimated 15-20%",
+              "scoring_methodology": "12-20%=4."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 9,
+              "weighted_score": 0.63,
+              "rationale": "70%+ distributed to mapping contributors. Purest work-to-earn model in this coverage. Community IS the product.",
+              "raw_data": "Contributors: >70% of supply | Model: pure work-to-earn | Alignment: highest in coverage",
+              "scoring_methodology": ">70%=10, pure work-to-earn = bonus."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 5,
+              "weighted_score": 0.2,
+              "rationale": "Early governance. Protocol controlled by Hivemapper team currently. Community governance planned.",
+              "raw_data": "Governance: team-led | DAO: planned | Treasury: early",
+              "scoring_methodology": "Team-led = 5."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 6,
+              "weighted_score": 0.42,
+              "rationale": "HONEY burned when enterprise customers purchase map data. Direct utility. But revenue scale is limited at current adoption.",
+              "raw_data": "Enterprise burn: yes | Map data purchase: HONEY burned | Scale: limited",
+              "scoring_methodology": "Direct burn for data purchase = 6-7."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "Enterprise data purchase creates burn. But ongoing contributor rewards = persistent inflation. Marginal anti-dump effect.",
+              "raw_data": "Enterprise burn: partial | Contributor inflation: ongoing | Net: marginal anti-dump",
+              "scoring_methodology": "Partial burn = 5."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.2,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 8,
+              "weighted_score": 0.64,
+              "rationale": "40%+ global road coverage in just 2 years is remarkable. Dashcam-based collection with AI quality scoring for anti-gaming. Google Maps alternative thesis is compelling and TAM is enormous.",
+              "raw_data": "Coverage: 40%+ global roads | Collection: dashcam AI-verified | Anti-gaming: image quality score",
+              "scoring_methodology": "Real-world coverage moat = strong differentiation."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "Live API for enterprise map data customers. 40%+ global coverage provides usable product. Revenue model confirmed.",
+              "raw_data": "API: live | Enterprise customers: yes | Coverage: 40%+ | Revenue: confirmed",
+              "scoring_methodology": "Live + small revenue = 7."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Solana-based. Standard security practices. No major incidents.",
+              "raw_data": "Chain: Solana | Audits: standard | Incidents: none",
+              "scoring_methodology": "Standard = 6."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "NATIX partnership expands ecosystem. API for enterprise developers active. Limited public developer community.",
+              "raw_data": "NATIX: partnership | API: active | Developer community: limited",
+              "scoring_methodology": "Moderate = 6."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.4,
+              "rationale": "Building a competing global mapping network from scratch is extraordinary. 40%+ global road coverage in 2 years = exceptional hardware and community coordination.",
+              "raw_data": "Achievement: 40%+ global coverage in 2 years | Community: dashcam operators worldwide",
+              "scoring_methodology": "Exceptional real-world coordination = 8."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "Multicoin Capital and Solana Ventures \u2014 Tier-1 backing for a micro-cap protocol.",
+              "raw_data": "VCs: Multicoin, Solana Ventures | Backing quality: high for market cap",
+              "scoring_methodology": "Top-10 funds for micro-cap = 8."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Network is geographically decentralised (dashcam operators worldwide) but governance is team-controlled. DAO planned.",
+              "raw_data": "Physical: decentralised (global operators) | Governance: team | DAO: planned",
+              "scoring_methodology": "Physical decentralization good, governance central = 6."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Mapping data collection faces privacy regulations in some jurisdictions (EU GDPR). NATIX partnership helps compliance. No regulatory actions taken.",
+              "raw_data": "Privacy risk: GDPR in EU | NATIX: compliance partner | Actions: none",
+              "scoring_methodology": "Partial privacy risk but managed = 7."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 6,
+              "weighted_score": 0.3,
+              "rationale": "DePIN sensor/mapping is a genuine category but weaker narrative than GPU compute in 2026. Autonomous vehicle tailwind provides future catalyst.",
+              "raw_data": "Category: Decentralised Mapping / Sensor | AV tailwind: future | Narrative: moderate",
+              "scoring_methodology": "Sensor DePIN weaker vs compute in 2026."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "NATIX partnership expansion. No confirmed blockbuster near-term catalyst.",
+              "raw_data": "NATIX: ongoing expansion | Major catalyst: none confirmed",
+              "scoring_methodology": "Soft catalysts = 5."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 6,
+              "weighted_score": 0.12,
+              "rationale": "Dashcam operator community worldwide. Practical contributor base. Small Twitter presence relative to protocol ambition.",
+              "raw_data": "Contributors: global dashcam operators | Twitter: small | Community: practical",
+              "scoring_methodology": "Practical community, limited social presence = 6."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 3,
+              "weighted_score": 0.03,
+              "rationale": "$350K 24h volume \u2014 critically thin. Cannot support meaningful position sizes. Micro-cap liquidity profile.",
+              "raw_data": "24h Vol: $350K | MC: $15M | Liquidity: critically thin",
+              "scoring_methodology": "Critically thin liquidity = 3."
+            }
+          ]
+        }
+      },
+      "token_distribution": {
+        "community_airdrop_pct": 72,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 15,
+        "investors_vcs_pct": 13,
+        "treasury_dao_pct": 0,
+        "yr1_inflation_pct": 17.0,
+        "emission_type": "Work-to-earn: HONEY distributed to dashcam contributors proportional to mapping quality and coverage.",
+        "burn_mechanism": "HONEY burned when enterprise customers purchase map data via API. Partial burn tied to revenue."
+      },
+      "qualitative": {
+        "core_thesis": "Hivemapper is the highest-conviction asymmetric bet in DePIN sensor coverage. At $15M market cap and 40%+ global road coverage, this is either the most undervalued DePIN protocol in existence or a product with a demand adoption ceiling. The dashcam operator model creates genuine community-owned infrastructure that would cost billions to replicate commercially.",
+        "demand_drivers": "Autonomous vehicle companies needing fresh map data; logistics firms needing real-time road condition data; city planners; autonomous drone operators; Google Maps competitors.",
+        "competitive_moat": "40%+ global road coverage in 2 years \u2014 no competitor has achieved this speed. AI image quality scoring prevents gaming. Dashcam-based collection is impossible to replicate at scale without paying HONEY incentives.",
+        "primary_risk": "Critically thin liquidity ($350K 24h volume) makes meaningful position sizing impossible without moving the market. Demand adoption ceiling unclear \u2014 is enterprise mapping TAM large enough to justify token price?",
+        "token_risk": "Ongoing contributor inflation from mapping rewards creates persistent supply pressure. HONEY token needs enterprise demand to grow faster than contributor rewards.",
+        "macro_correlation": "Low crypto correlation \u2014 moves on AV and mapping sector news. Google Maps data licensing news = key catalyst.",
+        "risk_mitigants": "Multicoin backing = Tier-1 validation for micro-cap. 40%+ coverage creates network effect moat. NATIX partnership provides enterprise distribution.",
+        "long_term_value_accrual": "Enterprise data purchases \u2192 HONEY burn. AV industry adoption \u2192 massive demand for fresh map data. Success = HONEY becomes the exchange medium for the global mapping data economy."
+      },
+      "kpi_targets": {
+        "custom_kpis": {
+          "global_road_coverage_pct_target": 60.0,
+          "enterprise_clients_target": 100,
+          "daily_volume_target_usd": 2000000
+        }
+      },
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "NATIX partnership expansion; 40%+ coverage milestone marketing push",
+          "confirmed": false
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Major AV company data partnership announcement; API enterprise client disclosure",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "60%+ global coverage milestone; DAO governance launch",
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+  "top_picks": [
+    {
+      "rank": 1,
+      "protocol_id": "akash",
+      "medal": "GOLD",
+      "composite_score": 7.85,
+      "tier": "TIER_2",
+      "signal": "ACCUMULATE",
+      "thesis_summary": "Akash is the highest-conviction DePIN accumulate as of March 2026. The BME upgrade (vote passed March 14) creates mathematically enforced AKT demand from GPU lease revenue \u2014 the most significant DePIN tokenomics upgrade of Q1 2026. At FDV $209M \u2014 the lowest in compute DePIN \u2014 with 67% circulating and live enterprise revenue from Venice.ai and FLock.io, the risk/reward is superior to all compute peers.",
+      "risk_summary": "Potential chain migration from Cosmos adds execution risk. 93% below ATH = weak holder conviction. Competition from Render and centralised clouds.",
+      "positioning": "Core DePIN position. Buy on pullbacks to $0.40-0.45 range. Watch on-chain burn metrics post-BME as confirmation signal. 6-12 month horizon."
+    },
+    {
+      "rank": 2,
+      "protocol_id": "filecoin",
+      "medal": "SILVER",
+      "composite_score": 7.62,
+      "tier": "TIER_2",
+      "signal": "ACCUMULATE",
+      "thesis_summary": "Filecoin is the best-positioned DePIN protocol for the AI data storage supercycle. The #1 AI developer activity score (Santiment Feb 2026), Bermuda government deal, and PoRep/PoSt cryptographic moat are unreplicable. Trading near all-time lows ($0.91 vs $237 ATH) with improving fundamentals creates the best risk/reward in storage DePIN. SEC 'alleged securities' label is the primary overhang to monitor.",
+      "risk_summary": "61% supply dilution overhang. SEC label limits US institutional participation. AWS storage pricing competitive pressure.",
+      "positioning": "Storage infrastructure core hold. Current $0.85-0.95 range is near-ATL entry. AI storage narrative is multi-year structural tailwind."
+    },
+    {
+      "rank": 3,
+      "protocol_id": "hivemapper",
+      "medal": "BRONZE",
+      "composite_score": 5.48,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "thesis_summary": "Hivemapper is the highest-asymmetry speculative bet in this coverage. At $15M FDV with 40%+ global road coverage \u2014 the equivalent of Google Maps built from scratch by a token-incentivised community \u2014 this is either historically cheap or demand-ceiling limited. Size extremely small given $350K daily liquidity. A single major AV company data partnership announcement could reprice this 5-10x.",
+      "risk_summary": "Critically thin liquidity makes institutional sizing impossible. Ongoing contributor inflation. Demand adoption ceiling unclear.",
+      "positioning": "Micro-speculative position only ($5-10K maximum given liquidity). Long-dated bet on AV industry data demand materialising. Do NOT size based on conviction \u2014 size based on liquidity."
+    }
+  ],
+  "macro_scenario_analysis": {
+    "bull_case": {
+      "probability_pct": 35,
+      "description": "AI compute demand from major LLM companies drives GPU lease revenue 5x across decentralised networks. Akash BME creates deflationary ATH. Filecoin lands 3+ major AI company storage deals. AWS/GCP GPU shortages force enterprise migration to decentralised alternatives. Hivemapper lands AV industry anchor client.",
+      "price_targets": {
+        "AKT": "$1.50-$2.50",
+        "FIL": "$2.00-$3.50",
+        "HNT": "$2.50-$4.00",
+        "GRASS": "$0.80-$1.20",
+        "ATH": "$0.018-$0.025"
+      }
+    },
+    "base_case": {
+      "probability_pct": 45,
+      "description": "Gradual DePIN sector recovery alongside broader crypto market. AI compute demand grows steadily but doesn't trigger institutional acceleration. BME upgrade validates AKT thesis but revenue growth is modest. FIL AI storage partnerships materialise slowly. Token unlock pressure caps upside across the sector.",
+      "price_targets": {
+        "AKT": "$0.60-$1.00",
+        "FIL": "$1.00-$1.50",
+        "HNT": "$1.20-$2.00",
+        "GRASS": "$0.30-$0.60",
+        "ATH": "$0.008-$0.012"
+      }
+    },
+    "bear_case": {
+      "probability_pct": 20,
+      "description": "AWS/GCP GPU price cuts eliminate decentralised compute cost advantage. Major unlock events (io.net April 28) trigger sector-wide risk-off. Regulatory action against DePIN bandwidth collection (GRASS) or SEC reclassification of FIL. All protocols retest 2025 lows.",
+      "price_targets": {
+        "AKT": "<$0.35",
+        "FIL": "<$0.70",
+        "HNT": "<$0.80",
+        "GRASS": "<$0.15",
+        "ATH": "<$0.004"
+      }
+    }
+  }
+}

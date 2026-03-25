@@ -1,0 +1,408 @@
+{
+  "metadata": {
+    "report_id": "PFT-SECTOR-20260324-5703",
+    "report_type": "sector_deep_dive",
+    "analyst_id": "pft-alpha-registry",
+    "timestamp": "2026-03-24T10:00:00+00:00",
+    "data_as_of": "2026-03-24",
+    "methodology_version": "v1.0.0",
+    "source_urls": [
+      "https://coingecko.com/en/coins/storj",
+      "https://coinmarketcap.com/currencies/storj/",
+      "https://storj.io",
+      "https://coincodex.com/crypto/storj/",
+      "https://coinbase.com/price/storj"
+    ],
+    "disclaimer": "Intelligence aggregation only. NOT financial or investment advice. ~88% of tokens lose value within 3 months. Never invest more than you can afford to lose. DYOR.",
+    "tags": ["DePIN", "storage", "S3-compatible", "decentralized-cloud", "sector-deep-dive", "2026"]
+  },
+
+  "report_type_guard": "sector_deep_dive",
+  "sector": "Decentralized Physical Infrastructure Networks (DePIN) — Storage Subcategory",
+
+  "sector_summary": {
+    "combined_market_cap_usd": 42000000,
+    "protocol_count": 1,
+    "narrative_overview": "Single-protocol validation entry for Storj (STORJ). Storj is a decentralized S3-compatible cloud storage network with live enterprise revenue, a monthly open-market buyback program, and 99.8% circulating supply — the most tokenomically clean storage DePIN in coverage.",
+    "bifurcation_analysis": "Storj sits firmly in the infrastructure-with-revenue category: real paying enterprise customers, S3-API compatibility creating near-zero switching cost from AWS, and GPU storage revenue up 7x YoY.",
+    "systemic_risks": [
+      {
+        "risk_id": "STORJ-SR-001",
+        "label": "AWS S3 Pricing Competition",
+        "severity": "HIGH",
+        "description": "AWS, GCP, and Cloudflare R2 are aggressively cutting object storage prices. If centralised incumbents match decentralised pricing, Storj's cost advantage narrows.",
+        "mitigation": "End-to-end encryption and data sovereignty are non-price features that enterprise clients value beyond raw cost."
+      },
+      {
+        "risk_id": "STORJ-SR-002",
+        "label": "Sanction Compliance Friction",
+        "severity": "MEDIUM",
+        "description": "Storj has faced sanction-related payment challenges that create compliance friction for certain enterprise clients.",
+        "mitigation": "Monitor regulatory developments. Ben Golub (ex-Docker CEO) brings enterprise compliance experience."
+      }
+    ],
+    "portfolio_construction_note": "Storj is a speculative complement to Filecoin. Both cover decentralised storage but with different positioning: FIL targets AI data permanence and Web3 native; STORJ targets enterprise S3 drop-in replacement with near-zero dilution."
+  },
+
+  "protocols": [
+    {
+      "project_id": "storj",
+      "project_name": "Storj",
+      "token_symbol": "STORJ",
+      "chain_type": "Ethereum (ERC-20)",
+      "category": "Decentralized Cloud Storage (S3-compatible)",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 43000000,
+      "market_cap_usd": 42000000,
+      "circ_supply_pct": 99.8,
+      "total_supply": 425000000,
+      "token_price_usd": 0.099,
+      "tvl_usd": 8000000,
+      "lead_vcs": ["Qualcomm Ventures", "Silvergate Capital", "Techstars"],
+      "amount_raised_usd": 30000000,
+      "vc_markup_multiple": 4.0,
+      "composite_score": 6.89,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "rank": 5,
+
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV vs DePIN storage peers",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "FDV $43M — lowest in storage DePIN coverage. Deep value vs Filecoin ($1.78B FDV). Down 97% from ATH ($3.98). ICO investors underwater = no institutional sell pressure.",
+              "raw_data": "FDV: $43M | MC: $42M | Price: $0.099 | ATH: $3.98 (Mar 2021) | ICO price: $0.50",
+              "scoring_methodology": "Lower FDV vs comparable DePIN storage peers = higher score."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply %",
+              "weight": 0.05,
+              "score": 10,
+              "weighted_score": 0.50,
+              "rationale": "99.8% circulating — effectively full distribution. Zero future dilution risk. Rarest tokenomics profile in DePIN coverage.",
+              "raw_data": "Circ: 422.97M | Total: 425M | Circ%: 99.8% | YoY inflation: 9.78% (from node rewards only)",
+              "scoring_methodology": ">80%=9, but 99.8%+ earns bonus score of 10 — effectively no future dilution."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC/TVL Revenue Ratio",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "MC $42M vs storage revenue proxy $8M. GPU storage revenue up 7x YoY. Real enterprise paying customers including AmmoContent (30% of AI training data).",
+              "raw_data": "MC: $42M | Revenue proxy: $8M | GPU storage revenue: 7x YoY | AmmoContent: 30% AI training data",
+              "scoring_methodology": "MC/revenue ratio 5.25x = fair. Revenue growth trajectory is strong positive signal."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 8,
+              "weighted_score": 0.32,
+              "rationale": "VC markup ~4x. ICO investors at $0.50 are underwater at $0.099. Minimal institutional sell pressure from original investors.",
+              "raw_data": "VC markup: ~4x | ICO price: $0.50 | Current: $0.099 | Original investors: deeply underwater",
+              "scoring_methodology": "Low VC markup + ICO participants underwater = minimal sell pressure."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 9,
+              "weighted_score": 0.63,
+              "rationale": "99.8% circulating means virtually no vesting overhangs remain. Only 6M tokens in treasury reserves. Near-complete distribution = maximum vesting integrity.",
+              "raw_data": "Circ: 422.97M / Total: 425M = 99.8% | Treasury: 6M remaining | Vesting: essentially complete",
+              "scoring_methodology": "Near-complete distribution = highest vesting integrity score."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 7,
+              "weighted_score": 0.42,
+              "rationale": "9.78% YoY inflation from node operator rewards. Partially offset by monthly open-market buybacks (~500K STORJ/month = ~8% of daily volume). Net effective inflation materially lower.",
+              "raw_data": "YoY inflation: 9.78% (37.67M STORJ created last year) | Buybacks: ~500K/month announced July 2025",
+              "scoring_methodology": "5-8%=8, 8-12%=6. Raw 9.78% = 6, but buyback program offsets ~60K/month = adjusted 7."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "Node operator rewards (storage providers) constitute ~55% of token distribution. Community-aligned supply-side incentives.",
+              "raw_data": "Node operators: ~55% | Team/advisors: ~20% | Investors: ~15% | Treasury: ~10%",
+              "scoring_methodology": ">50% community = 9, but operator-only (not broad community) = 7."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 6,
+              "weighted_score": 0.24,
+              "rationale": "Storj Labs Inc. controls protocol decisions. Only 6M tokens in treasury reserves. Limited on-chain governance maturity.",
+              "raw_data": "Treasury: 6M STORJ | Governance: Storj Labs Inc. controlled | DAO: not launched",
+              "scoring_methodology": "Corporate-controlled with minimal treasury = 6."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 7,
+              "weighted_score": 0.49,
+              "rationale": "STORJ required as payment for storage services and distributed to node operators as rewards. Direct utility link. Buyback program creates additional demand flow from revenue.",
+              "raw_data": "Utility: payment for storage + node rewards | Buyback: revenue-funded open-market purchases | GPU storage: 7x YoY growth",
+              "scoring_methodology": "Direct payment utility + revenue buyback = strong but no burn mechanism = 7."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Monthly buybacks absorb supply. Proposed staking would lock 10-15% of circulating. No formal burn yet — buyback is demand-creation not supply-destruction.",
+              "raw_data": "Buybacks: ~500K STORJ/month | Staking proposal: would lock 10-15% circ | Burn: not yet implemented",
+              "scoring_methodology": "Buyback = partial anti-dump. No burn = 6."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.20,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 8,
+              "weighted_score": 0.64,
+              "rationale": "S3-API compatibility = drop-in replacement for AWS S3 with zero code changes. End-to-end encryption at node level. 10yr head start. Ben Golub (ex-Docker CEO) enterprise distribution. GPU storage vertical is novel.",
+              "raw_data": "S3 API: fully compatible | Encryption: end-to-end at node | CEO: Ben Golub (ex-Docker) | Founded: 2014",
+              "scoring_methodology": "S3 compatibility is genuine enterprise moat. 10yr head start irreplicable."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 9,
+              "weighted_score": 0.54,
+              "rationale": "Mainnet live since 2019 (5+ years). Enterprise revenue growing 7x YoY in GPU segment. S3-compatible API in production. AmmoContent and other enterprise clients live.",
+              "raw_data": "Mainnet: since 2019 | GPU storage revenue: 7x YoY | Enterprise clients: live | S3 API: production",
+              "scoring_methodology": "Live 5+ years with growing enterprise revenue = 9."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "ERC-20 token with multiple years of mainnet operation and no major exploits. Ethereum-native security. Limited formal smart contract audit disclosure.",
+              "raw_data": "Token: ERC-20 on Ethereum | Mainnet: 5+ years no major exploit | Formal audits: limited public disclosure",
+              "scoring_methodology": "Long mainnet track record = 7 even with limited audit disclosure."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "GitHub active. S3 SDK available in multiple languages. Enterprise-focused rather than developer-community-facing. Limited DeFi/Web3 ecosystem integration.",
+              "raw_data": "GitHub: active | S3 SDKs: multiple languages | Web3 integrations: limited | Focus: enterprise",
+              "scoring_methodology": "Enterprise S3 focus = solid but limited Web3 developer community = 6."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.40,
+              "rationale": "Ben Golub (Executive Chairman, ex-Docker CEO) brings enterprise cloud credibility unmatched in DePIN. Shawn Wilkinson (founder, CSO) has 10yr track record building decentralised storage. John Quinn as CRO drives enterprise sales pipeline.",
+              "raw_data": "Chairman: Ben Golub (ex-Docker CEO) | Founder: Shawn Wilkinson (CSO, 10yr) | CRO: John Quinn | HQ: Atlanta GA",
+              "scoring_methodology": "Ex-Docker CEO + 10yr founder track record = 8."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "Qualcomm Ventures (strategic enterprise signal), Silvergate Capital (banking), Techstars (accelerator). Solid but not elite crypto-native VC backing. ICO raised $30M in 2017.",
+              "raw_data": "VCs: Qualcomm Ventures, Silvergate Capital, Techstars | Raised: $30M ICO (2017) | Crypto-native VCs: none",
+              "scoring_methodology": "Enterprise-focused investors = 6. No Tier-1 crypto fund."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "Protocol is technically decentralised at storage layer. Governance remains with Storj Labs Inc. No DAO or on-chain governance roadmap published.",
+              "raw_data": "Storage: decentralised (global nodes) | Governance: Storj Labs Inc. | DAO: no roadmap",
+              "scoring_methodology": "Physical decentralisation good, governance centralised = 5."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 5,
+              "weighted_score": 0.15,
+              "rationale": "US-based company (Atlanta, GA) with GDPR-compliant storage. Sanction-related payment challenges noted. No crypto-specific licenses held but enterprise compliance orientation.",
+              "raw_data": "HQ: Atlanta, GA | GDPR: compliant | Sanctions: payment friction noted | Licenses: enterprise compliance only",
+              "scoring_methodology": "Sanction friction reduces regulatory score. US-based = some SEC risk."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 7,
+              "weighted_score": 0.35,
+              "rationale": "AI data storage supercycle is the dominant tailwind. GPU storage revenue 7x YoY validates the AI narrative directly. S3-compatibility story resonates with enterprise AI developers.",
+              "raw_data": "Category: Decentralised Storage / AI Data | GPU storage: 7x YoY | S3 narrative: enterprise AI developer alignment",
+              "scoring_methodology": "AI storage tailwind strong but weaker social narrative vs compute DePIN = 7."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Monthly buyback program executing. Staking proposal under community discussion (would lock 10-15% supply). New AI company storage partnership pipeline active.",
+              "raw_data": "Buybacks: monthly executing | Staking: community proposal | AI partnerships: pipeline active",
+              "scoring_methodology": "Live buyback + staking proposal = confirmed catalysts = 7."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 6,
+              "weighted_score": 0.12,
+              "rationale": "Enterprise-focused community. 86% of Coinbase users buying STORJ (strong retail signal). Limited Twitter/social presence relative to market cap.",
+              "raw_data": "Coinbase: 86% buyers | Social: limited | Node operators: global network | Enterprise: growing",
+              "scoring_methodology": "Strong Coinbase buying signal but limited social community = 6."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 7,
+              "weighted_score": 0.07,
+              "rationale": "$7M 24h trading volume. Listed on Binance, Coinbase, Kraken. Reasonable for market cap size.",
+              "raw_data": "24h Vol: $7M | Listed: Binance, Coinbase, Kraken | Liquidity: reasonable for $42M cap",
+              "scoring_methodology": "Tier-1 exchanges with reasonable volume for cap size = 7."
+            }
+          ]
+        }
+      },
+
+      "token_distribution": {
+        "community_airdrop_pct": 55,
+        "ecosystem_grants_pct": 0,
+        "team_advisors_pct": 20,
+        "investors_vcs_pct": 15,
+        "treasury_dao_pct": 10,
+        "liquidity_mm_pct": 0,
+        "team_vest_years": 4,
+        "team_cliff_months": 12,
+        "investor_vest_years": 3,
+        "investor_cliff_months": 6,
+        "yr1_inflation_pct": 9.78,
+        "emission_type": "Node operator storage rewards (~9.78% YoY). Monthly open-market buybacks (~500K STORJ/month) offset inflation.",
+        "burn_mechanism": "Monthly open-market buybacks funded by storage revenue (announced July 2025). Proposed staking system would lock 10-15% circulating. No formal burn mechanism yet."
+      },
+
+      "qualitative": {
+        "core_thesis": "Storj is the most S3-compatible decentralised storage network — drop-in replacement for AWS S3 with enterprise-grade SLAs. Revenue up 7x YoY from GPU storage partnerships. At $42M MC with 99.8% circulating supply (near-zero future dilution) and a live buyback program, this is the most tokenomically clean storage DePIN in coverage.",
+        "demand_drivers": "Developers needing S3-compatible decentralised storage; AI companies storing GPU training data (30% of AI training data for AmmoContent); enterprises wanting data sovereignty without AWS dependency.",
+        "competitive_moat": "S3-API compatibility = near-zero switching cost from AWS S3. End-to-end encryption at node level. 10yr head start over competitors. Ben Golub (ex-Docker CEO) enterprise distribution network.",
+        "primary_risk": "Token price down 97% from ATH ($3.98, March 2021). Sanction-related payment challenges persist (compliance friction). AWS/GCP S3 pricing increasingly competitive.",
+        "token_risk": "9.78% YoY inflation from node operator rewards creates persistent sell pressure. Buyback program absorbs ~500K STORJ/month — meaningful but not elimination-level.",
+        "macro_correlation": "Low crypto correlation — behaves more like enterprise SaaS. Moves on cloud storage sector news and AI data demand.",
+        "risk_mitigants": "99.8% circulating = near-zero future dilution risk. Buyback program creates structural demand. GPU storage revenue 7x YoY demonstrates real enterprise traction.",
+        "novel_mechanism": "Monthly open-market buyback funded directly from storage revenue — ties token price support to real enterprise usage, not speculative treasury management.",
+        "long_term_value_accrual": "Enterprise storage fees → STORJ open-market buybacks. Staking launch → supply lock. Success = Storj becomes the default decentralised S3 layer with compounding buyback pressure."
+      },
+
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 15000000,
+        "tvl_12mo_target_usd": 30000000,
+        "monthly_revenue_6mo_usd": 1500000
+      },
+
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "Monthly buyback program execution — first on-chain buyback metrics published; GPU storage partnership expansion",
+          "confirmed": true
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "Staking system launch (locks 10-15% circulating supply); new AI company storage partnership",
+          "confirmed": false
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "Revenue milestone announcement; AWS S3 migration case study; enterprise data sovereignty regulation driving adoption",
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+
+  "top_picks": [
+    {
+      "rank": 1,
+      "protocol_id": "storj",
+      "medal": "GOLD",
+      "composite_score": 6.89,
+      "tier": "TIER_3",
+      "signal": "SPECULATIVE",
+      "thesis_summary": "Storj ranks as the highest-conviction storage DePIN speculative pick. 99.8% circulating supply with live revenue buyback is the rarest tokenomics profile in DePIN. GPU storage revenue 7x YoY. S3-compatibility means any AWS S3 user is a potential customer with zero switching friction.",
+      "risk_summary": "AWS competitive pricing. Sanction payment friction. No formal burn — buyback can be discontinued. Limited on-chain governance.",
+      "positioning": "Speculative storage complement to Filecoin. Buy $0.085-$0.095 range. Size modestly — watch staking launch as the primary re-rating catalyst."
+    }
+  ],
+
+  "macro_scenario_analysis": {
+    "bull_case": {
+      "probability_pct": 35,
+      "description": "AI data storage demand drives Storj GPU partnerships to enterprise scale. Staking system launches locking 10-15% supply. Monthly buybacks compound. Ben Golub leverages Docker enterprise network for Fortune 500 storage deals.",
+      "price_targets": {
+        "STORJ": "$0.25-$0.45"
+      }
+    },
+    "base_case": {
+      "probability_pct": 45,
+      "description": "Gradual enterprise adoption continues. Buybacks maintain price floor. Staking proposal passes but adoption is slow. GPU storage growth continues at 2-3x YoY rather than 7x.",
+      "price_targets": {
+        "STORJ": "$0.10-$0.20"
+      }
+    },
+    "bear_case": {
+      "probability_pct": 20,
+      "description": "AWS Cloudflare R2 or Backblaze B2 pricing kills decentralised storage cost advantage. Sanction compliance issues worsen. Buyback program discontinued due to revenue miss.",
+      "price_targets": {
+        "STORJ": "<$0.06"
+      }
+    }
+  }
+}

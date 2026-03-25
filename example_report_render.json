@@ -1,0 +1,430 @@
+{
+  "metadata": {
+    "report_id": "PFT-SECTOR-20260319-a107",
+    "report_type": "sector_deep_dive",
+    "analyst_id": "pft-alpha-registry",
+    "timestamp": "2026-03-19T12:00:00+00:00",
+    "data_as_of": "2026-03-19",
+    "methodology_version": "v1.0.0",
+    "source_urls": [
+      "https://coingecko.com",
+      "https://defillama.com",
+      "https://dune.com",
+      "https://github.com/rendernetwork",
+      "https://rendernetwork.com/token",
+      "https://immunefi.com/bounty/rendernetwork",
+      "https://rendernetwork.com/blog"
+    ],
+    "disclaimer": "Intelligence aggregation only. NOT financial or investment advice. ~88% of tokens lose value within 3 months. Never invest more than you can afford to lose. DYOR.",
+    "tags": ["AI", "GPU", "compute", "decentralized-AI", "sector-deep-dive", "2026"]
+  },
+
+  "report_type_guard": "sector_deep_dive",
+
+  "sector": "AI Agent & Decentralized AI Infrastructure",
+
+  "sector_summary": {
+    "combined_market_cap_usd": 5100000000,
+    "protocol_count": 10,
+    "narrative_overview": "This report covers 10 AI agent and decentralised AI protocols with live tokens: TAO, RENDER, FET, NMR, VIRTUAL, OLAS, ELIZAOS, AGIX, KITE, VVV. Combined market capitalisation of approximately $5.1 billion as of March 19, 2026. The sector peaked near $25 billion in Q4 2024, corrected more than 80% through early 2026, and is recovering led by TAO (+68% 7-day) and FET (+20% 7-day), driven by the Grayscale TAO ETF filing and Nvidia NemoClaw announcement.",
+    "bifurcation_analysis": "A clear bifurcation exists in this sector. Infrastructure protocols — Bittensor, Render, Numerai, and FET — demonstrate verifiable on-chain utility through subnet staking, GPU render revenue, hedge fund tournament activity, and agent marketplace fees respectively. Narrative-driven protocols — Virtuals, ElizaOS, AGIX, and KITE — carry substantial social momentum with weaker fee accrual. Venice (VVV) is the notable exception: a narrative token that has crossed into genuine traction with 1.3M users and active revenue burns.",
+    "systemic_risks": [
+      {
+        "risk_id": "SR-001",
+        "label": "Dilution Overhang",
+        "severity": "HIGH",
+        "description": "Five protocols carry notable dilution overhangs: KITE (82% not yet circulating), TAO (54.3%), AGIX (44.5%), VVV (43.4%), and OLAS (50.0%). Only Render (81.0% circ) and FET (83.2% circ) are near full distribution.",
+        "mitigation": "Prefer high-circ protocols for core positions; size speculative low-circ positions smaller."
+      },
+      {
+        "risk_id": "SR-002",
+        "label": "Single-Factor Narrative Concentration",
+        "severity": "HIGH",
+        "description": "All 10 protocols share exposure to a single macro narrative: decentralized AI. A centralized AI breakthrough or coordinated regulatory action would compress all valuations simultaneously.",
+        "mitigation": "Cap combined AI agent sector exposure at 15-20% of any crypto allocation."
+      },
+      {
+        "risk_id": "SR-003",
+        "label": "Liquidity Risk — OLAS & ELIZAOS",
+        "severity": "MEDIUM",
+        "description": "Autonolas (OLAS) has critically thin 24-hour trading volume of approximately $200K. ElizaOS trades $1-5M daily — effectively untradeable at scale.",
+        "mitigation": "Do not attempt positions above $50K equivalent in OLAS or $100K in ELIZAOS without staged execution."
+      }
+    ],
+    "portfolio_construction_note": "Optimal portfolio construction combines 1-2 infrastructure core positions (RENDER, TAO) with 1 speculative launchpad position (VIRTUAL or VVV) for narrative upside, capping combined AI agent sector exposure at 15-20% of any crypto allocation given single-factor narrative risk."
+  },
+
+  "protocols": [
+    {
+      "project_id": "render",
+      "project_name": "Render Network",
+      "token_symbol": "RENDER",
+      "chain_type": "Solana",
+      "category": "Decentralized GPU / AI Compute",
+      "stage": "mainnet_with_revenue",
+      "fdv_usd": 920000000,
+      "market_cap_usd": 894000000,
+      "circ_supply_pct": 81.0,
+      "total_supply": 640000000,
+      "token_price_usd": 1.72,
+      "tvl_usd": 8000000,
+      "lead_vcs": ["Multicoin Capital", "Solana Ventures"],
+      "amount_raised_usd": 30000000,
+      "vc_markup_multiple": 3.0,
+      "composite_score": 8.07,
+      "tier": "TIER_2",
+      "signal": "ACCUMULATE",
+      "rank": 1,
+
+      "scorecard_dimensions": {
+        "market_valuation": {
+          "section_weight": 0.21,
+          "dimensions": [
+            {
+              "dimension_id": "MV-01",
+              "label": "FDV at current price (vs peers)",
+              "weight": 0.06,
+              "score": 9,
+              "weighted_score": 0.54,
+              "rationale": "FDV $920M vs AI sector median ~$450M. At 81% circ, FDV closely tracks MC. Reasonable vs Bittensor ($5.7B).",
+              "raw_data": "FDV: $920M | Circ%: 81% | AI sector median FDV ~$450M",
+              "scoring_methodology": "Lower FDV vs comparable AI agent peers = higher score. Benchmarked vs 3 closest comps per project."
+            },
+            {
+              "dimension_id": "MV-02",
+              "label": "Circulating Supply % (current)",
+              "weight": 0.05,
+              "score": 9,
+              "weighted_score": 0.45,
+              "rationale": "81% circulating — minimal future dilution overhang. Second highest in coverage universe.",
+              "raw_data": "Circ%: 81.0% | Threshold: >80%=9, 60-80%=7, 40-60%=5, <40%=3",
+              "scoring_methodology": "Higher circ% = less future dilution. >80% rewarded with score 9."
+            },
+            {
+              "dimension_id": "MV-03",
+              "label": "MC / TVL Ratio (revenue proxy)",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "MC $894M / Revenue proxy $8M. OTOY OctaneRender provides recurring enterprise revenue stream independent of crypto.",
+              "raw_data": "MC: $894M | TVL/Rev: $8M | Note: Active GPU revenue from 3D/AI render jobs via OTOY",
+              "scoring_methodology": "MC/TVL <0.5=strong(9-10), 0.5-1=good(7-8), 1-3=fair(5-6), >5=expensive(<4)."
+            },
+            {
+              "dimension_id": "MV-04",
+              "label": "VC entry vs current price multiple",
+              "weight": 0.04,
+              "score": 9,
+              "weighted_score": 0.36,
+              "rationale": "VC markup ~3x — low insider sell pressure. Multicoin entered at historically attractive levels.",
+              "raw_data": "VC markup: ~3x | Lead VCs: Multicoin, Solana Ventures",
+              "scoring_methodology": "Lower VC markup = less insider sell pressure. <3x scores 9-10."
+            }
+          ]
+        },
+        "tokenomics_design": {
+          "section_weight": 0.34,
+          "dimensions": [
+            {
+              "dimension_id": "TD-01",
+              "label": "Vesting schedule integrity",
+              "weight": 0.07,
+              "score": 8,
+              "weighted_score": 0.56,
+              "rationale": "Team 3yr vest / 1yr cliff, VC 2yr vest / 6mo cliff. Team+VC allocation 18% is moderate. Above-average discipline.",
+              "raw_data": "Team: 3yr vest / 1yr cliff | VC: 2yr vest / 6mo cliff | Team+VC%: 18%",
+              "scoring_methodology": "Longer vest + lower VC% = higher score. 4yr/1yr cliff benchmark. Fair-launch = bonus."
+            },
+            {
+              "dimension_id": "TD-02",
+              "label": "Emission / inflation rate (Yr 1)",
+              "weight": 0.06,
+              "score": 9,
+              "weighted_score": 0.54,
+              "rationale": "~3% net inflation at utilization >40% due to BME mechanics — effectively deflationary at scale. Best-in-class.",
+              "raw_data": "Yr1 inflation: ~3% (net deflationary at high utilization) | Type: Burn-and-Mint Equilibrium (BME)",
+              "scoring_methodology": "<2%=10, 2-5%=9, 5-8%=8, 8-12%=6, 12-20%=4, >20%=2. Net-deflationary = max score."
+            },
+            {
+              "dimension_id": "TD-03",
+              "label": "Community + ecosystem allocation",
+              "weight": 0.07,
+              "score": 8,
+              "weighted_score": 0.56,
+              "rationale": "Community 52% + Ecosystem 18% = 70% total. Strong community-first distribution.",
+              "raw_data": "Community: 52% | Ecosystem: 18% | Total: 70%",
+              "scoring_methodology": ">60% total community+ecosystem=10, >50%=9, >40%=8."
+            },
+            {
+              "dimension_id": "TD-04",
+              "label": "Treasury / DAO governance",
+              "weight": 0.04,
+              "score": 7,
+              "weighted_score": 0.28,
+              "rationale": "12% treasury, on-chain governance with RENDER token votes. Solid but governance still maturing.",
+              "raw_data": "Treasury: 12% of supply | See Qualitative tab for governance detail",
+              "scoring_methodology": "DAO maturity, on-chain vs multisig, transparency scored qualitatively."
+            },
+            {
+              "dimension_id": "TD-05",
+              "label": "Token utility / fee accrual",
+              "weight": 0.07,
+              "score": 9,
+              "weighted_score": 0.63,
+              "rationale": "RENDER burned per render job; node operators minted RENDER proportional to work. Direct utility-to-demand coupling.",
+              "raw_data": "Mechanism: RENDER burned per render job; new tokens minted for node operators proportional to work done",
+              "scoring_methodology": "Explicit fee accrual or burn = highest. Pure governance = lowest."
+            },
+            {
+              "dimension_id": "TD-06",
+              "label": "Anti-dump mechanisms",
+              "weight": 0.03,
+              "score": 9,
+              "weighted_score": 0.27,
+              "rationale": "BME structure mathematically enforces deflation. Node operator staking creates supply lock. No reliance on discretionary buybacks.",
+              "raw_data": "Mechanism: RENDER burned per render job; new tokens minted for node operators proportional to work done",
+              "scoring_methodology": "Formal burn, bonding, slashing, or committed buyback tied to revenue = high score."
+            }
+          ]
+        },
+        "technology_product": {
+          "section_weight": 0.20,
+          "dimensions": [
+            {
+              "dimension_id": "TP-01",
+              "label": "Tech differentiation / moat",
+              "weight": 0.08,
+              "score": 8,
+              "weighted_score": 0.64,
+              "rationale": "OTOY OctaneRender integration creates sticky enterprise pipeline 10 years in the making. Solana migration improved throughput. BME enforces deflation mathematically.",
+              "raw_data": "GitHub commits/mo: 80 | Audits: Halborn, Neodyme",
+              "scoring_methodology": "Technical novelty vs existing solutions, replicability, defensibility of core architecture."
+            },
+            {
+              "dimension_id": "TP-02",
+              "label": "Mainnet / product readiness",
+              "weight": 0.06,
+              "score": 8,
+              "weighted_score": 0.48,
+              "rationale": "Mainnet live with active revenue from GPU render jobs. Enterprise OTOY pipeline provides real recurring revenue.",
+              "raw_data": "TVL/Rev proxy: $8M | Stage: Live with enterprise revenue",
+              "scoring_methodology": "Live + revenue=9-10, live no revenue=7-8, testnet=5-6."
+            },
+            {
+              "dimension_id": "TP-03",
+              "label": "Smart contract / audit quality",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Halborn and Neodyme audits completed. $50K bug bounty. Solid but not top-tier bounty size.",
+              "raw_data": "Bug bounty: $50K | Auditors: Halborn, Neodyme",
+              "scoring_methodology": ">=3 reputable audits + >$500K bounty=9-10, 2 audits=7-8, 1=6, none=2."
+            },
+            {
+              "dimension_id": "TP-04",
+              "label": "Developer ecosystem activity",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "80 GitHub commits/month, 280K Twitter followers. Solid but below top-tier developer engagement.",
+              "raw_data": "GitHub commits/mo: 80 | Twitter following: 280K",
+              "scoring_methodology": ">300 commits/mo=10, >150=8, >80=7, >40=6, <40=4."
+            }
+          ]
+        },
+        "team_governance": {
+          "section_weight": 0.14,
+          "dimensions": [
+            {
+              "dimension_id": "TG-01",
+              "label": "Team track record",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.40,
+              "rationale": "Jules Urbach (CEO) co-founded OTOY with decade of enterprise rendering relationships. Strong domain expertise.",
+              "raw_data": "Lead backers: Multicoin, Solana Ventures",
+              "scoring_methodology": "Prior exits, crypto protocol experience, academic/engineering credentials, public reputation."
+            },
+            {
+              "dimension_id": "TG-02",
+              "label": "Investor quality & signaling",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Multicoin Capital (top-10 crypto fund) and Solana Ventures. Strong signals but not the deepest bench.",
+              "raw_data": "Lead VCs: Multicoin, Solana Ventures | VC markup: ~3x",
+              "scoring_methodology": "Top-10 crypto fund=9-10, Top-25=7-8, generalist/none=5-6."
+            },
+            {
+              "dimension_id": "TG-03",
+              "label": "Decentralization roadmap",
+              "weight": 0.03,
+              "score": 7,
+              "weighted_score": 0.21,
+              "rationale": "Solana-based architecture with public validator set. Roadmap to expanded node operator participation documented.",
+              "raw_data": "Credible, time-bound decentralization path",
+              "scoring_methodology": "Each public, time-bound milestone earns partial credit."
+            },
+            {
+              "dimension_id": "TG-04",
+              "label": "Regulatory posture",
+              "weight": 0.03,
+              "score": 6,
+              "weighted_score": 0.18,
+              "rationale": "1 regulatory license held. BME token model provides utility-payment framing reducing security classification risk.",
+              "raw_data": "Licenses held: 1 | >=5=10, >=3=8, >=1=6, 0=3",
+              "scoring_methodology": "Proactive licensing = highest. Zero engagement = lowest."
+            }
+          ]
+        },
+        "narrative_catalyst": {
+          "section_weight": 0.11,
+          "dimensions": [
+            {
+              "dimension_id": "NC-01",
+              "label": "Narrative strength (2026 cycle)",
+              "weight": 0.05,
+              "score": 8,
+              "weighted_score": 0.40,
+              "rationale": "Decentralized GPU / AI compute is the dominant infrastructure narrative of 2026. Nvidia NemoClaw tailwind directly validates RENDER's thesis.",
+              "raw_data": "Category: Decentralized GPU / AI Compute",
+              "scoring_methodology": "Alignment with dominant 2026 AI/crypto narratives. Institutional validation = bonus."
+            },
+            {
+              "dimension_id": "NC-02",
+              "label": "Catalyst pipeline (90-day)",
+              "weight": 0.03,
+              "score": 8,
+              "weighted_score": 0.24,
+              "rationale": "NVIDIA H200 node expansion; OctaneStudio+ AI release; AI inference subnet beta launch — all confirmed near-term.",
+              "raw_data": "Key catalysts: NVIDIA H200 node expansion; OctaneStudio+ AI release; AI inference subnet launch",
+              "scoring_methodology": "2+ confirmed near-term catalysts=9-10, 1 confirmed=7-8, soft only=4-5."
+            },
+            {
+              "dimension_id": "NC-03",
+              "label": "Community size & engagement",
+              "weight": 0.02,
+              "score": 7,
+              "weighted_score": 0.14,
+              "rationale": "280K Twitter followers. Active GPU node operator community. Quality > raw quantity.",
+              "raw_data": "Twitter: 280K | >400K=9, >200K=7, >100K=6, <100K=5",
+              "scoring_methodology": "Wallet users, Twitter/Discord. Quality weighted over raw numbers."
+            },
+            {
+              "dimension_id": "NC-04",
+              "label": "Exchange listing / liquidity",
+              "weight": 0.01,
+              "score": 8,
+              "weighted_score": 0.08,
+              "rationale": "$65M+ 24h trading volume. Listed on Binance, Coinbase, OKX. Deep institutional liquidity.",
+              "raw_data": "24h Vol: $65M+ | Tier-1 CEX presence evaluated",
+              "scoring_methodology": "Tier-1 CEX with deep liquidity=9-10. Thin/illiquid=3-4."
+            }
+          ]
+        }
+      },
+
+      "token_distribution": {
+        "community_airdrop_pct": 52,
+        "ecosystem_grants_pct": 18,
+        "team_advisors_pct": 10,
+        "investors_vcs_pct": 8,
+        "treasury_dao_pct": 12,
+        "liquidity_mm_pct": 0,
+        "team_vest_years": 3,
+        "team_cliff_months": 12,
+        "investor_vest_years": 2,
+        "investor_cliff_months": 6,
+        "yr1_inflation_pct": 3.0,
+        "emission_type": "Burn-and-Mint Equilibrium (BME)",
+        "burn_mechanism": "RENDER burned per render job; new tokens minted for node operators proportional to work done. Net deflationary at utilization >~40%."
+      },
+
+      "qualitative": {
+        "core_thesis": "Decentralized GPU render network where artists and studios pay RENDER for 3D rendering and AI inference. Burn-and-Mint Equilibrium creates direct utility-to-demand link. Most structurally sound tokenomics in this universe.",
+        "demand_drivers": "3D artists needing affordable GPU renders; AI companies needing inference compute; Octane/Cinema4D users via OTOY partnership; enterprise studios needing scalable GPU access.",
+        "competitive_moat": "OTOY OctaneRender integration = direct enterprise pipeline. Solana migration increased throughput. BME enforces deflation at scale mathematically. 10yr head start vs competitors.",
+        "primary_risk": "Competition from Akash, io.net, and centralized GPU clouds (AWS, GCP). Nvidia/AWS commoditization could reduce scarcity premium over time.",
+        "token_risk": "Legacy ETH RNDR contract deprecated Jul 2025 — migration risk for non-migrated holders. Alameda historical investor association (pre-collapse).",
+        "macro_correlation": "Nvidia stock correlation (positive). Crypto beta is moderate. Enterprise SaaS-like revenue provides partial floor independent of crypto sentiment.",
+        "risk_mitigants": "OTOY partnership creates sticky enterprise demand. BME deflation is mathematically enforced, not discretionary. 81% circ = minimal future dilution risk.",
+        "novel_mechanism": "BME: every render job burns RENDER tokens; new RENDER minted for node operators only proportional to work completed. Net deflationary at utilization >~40%. Demand-driven emission control.",
+        "precedent_analogy": "Closest to Filecoin (storage→compute) but with real enterprise adoption. More analogous to AWS Spot Instances with embedded token incentives.",
+        "long_term_value_accrual": "GPU utilization fees → RENDER burn. Node operator rewards → staking lock. Success = 'decentralized AWS GPU' with mathematically enforced deflation."
+      },
+
+      "kpi_targets": {
+        "tvl_6mo_target_usd": 50000000,
+        "tvl_12mo_target_usd": 150000000,
+        "monthly_revenue_6mo_usd": 3000000
+      },
+
+      "catalysts": [
+        {
+          "horizon": "90_DAY",
+          "description": "NVIDIA H200 node operator expansion; OctaneStudio+ AI release",
+          "confirmed": true
+        },
+        {
+          "horizon": "H1_2026",
+          "description": "AI inference subnet beta launch on Render network",
+          "confirmed": true
+        },
+        {
+          "horizon": "H2_2026",
+          "description": "AI workload subnet mainnet; node operator staking upgrades; major AI studio partnership announcements",
+          "confirmed": false
+        },
+        {
+          "horizon": "2027_PLUS",
+          "description": "Full AI inference marketplace; RENDER as compute settlement layer for creative AI economy; OctaneCloud global expansion",
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+
+  "top_picks": [
+    {
+      "rank": 1,
+      "protocol_id": "render",
+      "medal": "GOLD",
+      "composite_score": 8.07,
+      "tier": "TIER_2",
+      "signal": "ACCUMULATE",
+      "thesis_summary": "Render scores highest in this universe at 8.07/10 primarily on tokenomics design. The Burn-and-Mint Equilibrium is mathematically enforced deflation — every render job burns RENDER, with new tokens minted only proportional to work completed. At 81% circulating supply, future dilution risk is the lowest in our coverage. Enterprise revenue from OTOY OctaneRender provides real partial market floor independent of crypto sentiment.",
+      "risk_summary": "Competition from Akash and io.net; Nvidia direct cloud commoditization risk.",
+      "positioning": "Core infrastructure hold. Pair with TAO as the infrastructure basket. Current $1.70-$1.80 range is technically strong post-breakout from 2025 lows."
+    }
+  ],
+
+  "macro_scenario_analysis": {
+    "bull_case": {
+      "probability_pct": 40,
+      "description": "Grayscale TAO ETF approved — triggers institutional AI-crypto allocation wave. Nvidia NemoClaw validates decentralized compute narrative with enterprise partnerships. ASI Chain launches successfully.",
+      "price_targets": {
+        "RENDER": "$3.50-$4.00",
+        "TAO": "$400-$500",
+        "FET": "$0.40-$0.55"
+      }
+    },
+    "base_case": {
+      "probability_pct": 45,
+      "description": "Gradual sector recovery continues alongside broader crypto market. AI narrative sustains without major institutional acceleration. Individual catalysts execute on schedule.",
+      "price_targets": {
+        "RENDER": "$1.50-$2.50",
+        "TAO": "$250-$350",
+        "FET": "$0.20-$0.35"
+      }
+    },
+    "bear_case": {
+      "probability_pct": 15,
+      "description": "Macro risk-off event or centralized AI breakthrough undermines decentralized AI thesis. All protocols retest 2024 lows with 60-70% drawdowns.",
+      "price_targets": {
+        "RENDER": "<$0.80",
+        "TAO": "<$150",
+        "FET": "<$0.10"
+      }
+    }
+  }
+}

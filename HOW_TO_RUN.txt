@@ -1,0 +1,56 @@
+POST FIAT ALPHA REGISTRY — VALIDATOR PACKAGE
+=============================================
+
+WHAT'S IN THIS FOLDER
+----------------------
+  validator.py                    ← The validator script (run this)
+  pft_alpha_registry_schema.json  ← The schema rulebook (DO NOT run this)
+  example_report_storj.json       ← Example: Storj sector deep dive report
+  example_report_render.json      ← Example: Render Network sector deep dive report
+  depin_sector_deep_dive.json     ← Full DePIN sector report (12 protocols)
+
+STEP 1 — INSTALL DEPENDENCY (one time only)
+--------------------------------------------
+  pip install jsonschema
+
+STEP 2 — RUN THE VALIDATOR
+---------------------------
+Point the validator at a REPORT file, NOT the schema file.
+
+  python validator.py example_report_storj.json
+  python validator.py example_report_render.json
+  python validator.py depin_sector_deep_dive.json
+
+  # To validate your own report:
+  python validator.py your_report.json
+
+STEP 3 — READ THE OUTPUT
+-------------------------
+  ✅ PASS = 0 errors. Report is machine-ingestible by Hive Mind agents.
+  ❌ FAIL = errors listed with exact field paths and what went wrong.
+
+COMMON MISTAKE
+--------------
+  ❌ WRONG: python validator.py pft_alpha_registry_schema.json
+               (this runs the schema against itself — always fails)
+
+  ✅ RIGHT:  python validator.py example_report_storj.json
+               (this runs a REPORT against the schema)
+
+SCHEMA VERSION
+--------------
+  pft_alpha_registry_schema.json = v1.1.0
+  Adds 8 DePIN-specific fields vs v1.0.0 (all optional, backward compatible).
+  See changelog block inside the schema JSON for full change history.
+
+REPORT_TYPE_GUARD VALUES
+------------------------
+  Every report JSON must contain:
+    "report_type_guard": "sector_deep_dive"
+  or
+    "report_type_guard": "tokenomics_scorecard"
+  or
+    "report_type_guard": "airdrop_intelligence"
+
+  If this field is missing or wrong, you will see:
+    "Cannot determine report type"
